@@ -147,6 +147,38 @@
 
 <!-- ===== HEADER ===== -->
 <header class="site-header">
+  <!-- drishti: small blue evil-eye latkan with a gold bell, hanging from the header at the left -->
+  <svg class="drishti" viewBox="0 0 60 212" aria-hidden="true">
+    <defs>
+      <radialGradient id="drNavy" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#3A7BEA"/><stop offset=".5" stop-color="#0E3FA9"/><stop offset="1" stop-color="#051A52"/></radialGradient>
+      <radialGradient id="drSky" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#D4EEFF"/><stop offset=".55" stop-color="#63B6F5"/><stop offset="1" stop-color="#2A83D6"/></radialGradient>
+      <radialGradient id="drBlk" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#5A5A66"/><stop offset=".35" stop-color="#1B1B22"/><stop offset="1" stop-color="#000"/></radialGradient>
+      <radialGradient id="drBlue" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#8FC8FF"/><stop offset=".5" stop-color="#1E5FD0"/><stop offset="1" stop-color="#0A2C78"/></radialGradient>
+      <linearGradient id="drGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF1C2"/><stop offset=".5" stop-color="#F2C462"/><stop offset="1" stop-color="#B8862B"/></linearGradient>
+      <symbol id="drB" viewBox="-50 -50 100 100"><circle r="48" fill="url(#drBlk)"/><ellipse cx="-16" cy="-20" rx="14" ry="8" fill="#fff" opacity=".35" transform="rotate(-35 -16 -20)"/></symbol>
+      <symbol id="drU" viewBox="-50 -50 100 100"><circle r="48" fill="url(#drBlue)"/><ellipse cx="-16" cy="-20" rx="14" ry="8" fill="#fff" opacity=".5" transform="rotate(-35 -16 -20)"/></symbol>
+      <symbol id="drG" viewBox="-50 -50 100 100"><circle r="48" fill="url(#drGold)"/><ellipse cx="-16" cy="-20" rx="14" ry="8" fill="#fff" opacity=".6" transform="rotate(-35 -16 -20)"/></symbol>
+    </defs>
+    <line x1="30" y1="0" x2="30" y2="150" stroke="#0D0D12" stroke-width="2"/>
+    <use href="#drB" x="26" y="8" width="8" height="8"/><use href="#drG" x="26" y="20" width="8" height="8"/><use href="#drB" x="26" y="32" width="8" height="8"/>
+    <g transform="translate(30 64)">
+      <circle r="22" fill="url(#drNavy)" stroke="#04133A" stroke-width="1.2"/>
+      <circle r="14.2" fill="#F7FBFF"/><circle r="9.6" fill="url(#drSky)"/><circle r="4.6" fill="#070A14"/>
+      <circle cx="1.8" cy="-1.8" r="1.4" fill="#fff"/>
+      <ellipse cx="-9" cy="-11" rx="7" ry="3.2" fill="#fff" opacity=".45" transform="rotate(-35 -9 -11)"/>
+    </g>
+    <use href="#drB" x="26" y="90" width="8" height="8"/><use href="#drU" x="26" y="102" width="8" height="8"/><use href="#drB" x="26" y="114" width="8" height="8"/><use href="#drG" x="26" y="126" width="8" height="8"/>
+    <g transform="translate(30 152)">
+      <circle cy="-13" r="3" fill="none" stroke="url(#drGold)" stroke-width="1.8"/>
+      <path d="M-11 10C-11-4-7.5-11 0-11S11-4 11 10l3.5 3.5h-29z" fill="url(#drGold)" stroke="#9A6E1E" stroke-width=".9"/>
+      <circle cy="16" r="3.4" fill="url(#drGold)" stroke="#9A6E1E" stroke-width=".9"/>
+    </g>
+    <g transform="translate(20 166)">
+      <rect x="6" y="0" width="8" height="6" rx="2" fill="url(#drGold)"/>
+      <g stroke="#0D0D12" stroke-width="1.4" fill="none" stroke-linecap="round"><path d="M10 6q-1 20-8 40"/><path d="M10 6q0 20-4 41"/><path d="M10 6q0 20-1 42"/><path d="M10 6q0 20 2 42"/><path d="M10 6q1 20 5 41"/><path d="M10 6q2 20 8 40"/></g>
+      <rect x="5" y="10" width="10" height="2.6" rx="1.3" fill="url(#drGold)"/>
+    </g>
+  </svg>
   <div class="hdr-in">
     <nav class="nav" id="nav" aria-label="Story steps">
       <a href="#home" data-go="home">Home</a>

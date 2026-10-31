@@ -765,3 +765,10 @@ html body,html body *:not(.em){font-family:'Cormorant Garamond','Noto Serif Tami
 [data-theme="plum"] .foot-line{color:rgba(247,213,139,.85)}
 [data-theme="plum"] .foot-line::before,[data-theme="plum"] .foot-line::after{background:linear-gradient(90deg,transparent,#E3A93C)}
 [data-theme="plum"] .toast{background:rgba(42,10,46,.97);border-color:rgba(247,213,139,.4);color:#F7E7CE}
+
+/* ===== DRISHTI: a small blue evil-eye latkan (gold bell + black tassel) hanging from the header at the left, swinging gently ===== */
+.drishti{position:absolute;left:max(14px,2.2vw);top:calc(100% - 2px);width:28px;height:99px;overflow:visible;pointer-events:none;transform-origin:50% 0;filter:drop-shadow(0 4px 5px rgba(0,0,0,.45));animation:drishtiSwing 3.7s ease-in-out infinite alternate}
+@keyframes drishtiSwing{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
+@media(max-width:699px){.drishti{left:10px;width:22px;height:78px}}
+@media(prefers-reduced-motion:reduce){.drishti{animation:none}}
+.site-header:has(.nav.open) .drishti{opacity:0}
