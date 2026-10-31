@@ -137,7 +137,6 @@ main{position:relative;z-index:2}
 .hero-poem{margin:22px auto 0;max-width:520px;font-family:var(--tamil);font-size:clamp(16px,1.55vw,19px);line-height:1.85;color:var(--blush)}
 .hero-poem p+p{margin-top:12px}
 .hero-copy .btn{margin-top:28px}
-.btn-ta{font:600 clamp(16px,2vw,19px)/1.4 var(--mem-title);letter-spacing:.01em;padding:12px 30px;text-align:center;max-width:100%}
 @media(min-width:960px){
   .hero{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:24px;min-height:calc(100svh - var(--hdr) - 110px)}
   .hero-copy{text-align:left}
@@ -772,3 +771,7 @@ html body,html body *:not(.em){font-family:'Cormorant Garamond','Noto Serif Tami
 @media(max-width:699px){.drishti{left:10px;width:22px;height:78px}}
 @media(prefers-reduced-motion:reduce){.drishti{animation:none}}
 .site-header:has(.nav.open) .drishti{opacity:0}
+
+/* ===== HEADER MENU SYMBOLS: a little gold symbol before each name (♡ Hello · ✦ Memories · ✉ Letter · ❀ Surprise · ∞ Forever) ===== */
+.nav a .ni{flex:none;width:.95em;height:.95em;margin-right:.45em;color:#F7D58B;filter:drop-shadow(0 0 4px rgba(247,213,139,.55))}
+.nav a[aria-current="page"]::before{content:none}   /* the gold symbol already marks the item; no extra heart in the phone menu */
