@@ -1,0 +1,11 @@
+# OS / editor clutter
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# raw photos and videos straight from the phone (only the prepared copies in assets/ are used)
+WhatsApp*
+*.mov
+*.mp4

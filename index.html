@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en" data-theme="plum">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#3B2C80">
+<title>Happy Birthday, Ramya</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%92%96%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Serif+Tamil:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap">
+<!--
+  HOW TO CUSTOMISE
+  - Words + photos: the MEMORIES, STORY, LETTER, SURPRISE and FINAL blocks at the top of js/main.js
+  - Photos:  assets/images/ramya/ (full size + thumbs/), assets/images/mosaic/ (home heart, big/ = sharp copies),
+             assets/images/memories/ (final-photo.jpg, hands.jpg)
+  - Music:   assets/music/kalla-nikkiriye.mp3
+  - Styles:  css/style.css
+  - Jump to a step:  index.html#memories  #letter  #surprise  #final   (add ?intro=0 to skip the opening)
+-->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<noscript><p style="padding:90px 20px;text-align:center">This birthday surprise needs JavaScript. Please turn it on and reload.</p></noscript>
+
+<!-- ===== OPENING (shown before the home page; skip it with index.html?intro=0) ===== -->
+<div class="intro" id="intro" role="button" tabindex="0" aria-label="Happy Birthday Ramya. Tap to open your gift">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="n-goldText" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF3C4"/><stop offset=".45" stop-color="#F5C04A"/><stop offset=".7" stop-color="#C98A2C"/><stop offset="1" stop-color="#F7D58B"/></linearGradient>
+    <linearGradient id="n-g" x1="0" x2="1"><stop offset="0" stop-color="#C98A2C"/><stop offset="1" stop-color="#FFF3C4"/></linearGradient>
+    <path id="n-hp" d="M50 90C18 66 2 46 6 26C10 6 36 0 50 20C64 0 90 6 94 26C98 46 82 66 50 90Z"/>
+    <symbol id="n-corner" viewBox="0 0 70 70"><path d="M2 68V22C2 10 10 2 22 2H68" fill="none" stroke="#F7D58B" stroke-width="2"/><path d="M10 60V26C10 16 16 10 26 10H60" fill="none" stroke="#F7D58B" stroke-width="1" opacity=".6"/><circle cx="22" cy="22" r="4" fill="#F7D58B"/><path d="M22 22C34 18 40 26 34 30C30 33 26 28 30 26" fill="none" stroke="#F7D58B" stroke-width="1.2"/></symbol>
+  </defs>
+</svg>
+<canvas id="n-fx"></canvas>
+<div class="n-frm"></div>
+<svg class="n-cor n-tl"><use href="#n-corner"/></svg><svg class="n-cor n-tr"><use href="#n-corner"/></svg><svg class="n-cor n-bl"><use href="#n-corner"/></svg><svg class="n-cor n-br"><use href="#n-corner"/></svg>
+
+<div class="n-wrap">
+  <div class="n-eyebrow">✦ TODAY IS ALL ABOUT YOU ✦</div>
+  <div class="n-line">
+    <svg viewBox="0 0 760 150" aria-label="Happy Birthday"><text class="n-gold-text" x="380" y="112" text-anchor="middle" font-size="124">Happy Birthday</text></svg>
+    <svg class="n-arrow" viewBox="0 0 220 40" aria-hidden="true">
+      <path d="M0 20H40" stroke="url(#n-g)" stroke-width="2" opacity=".5"/>
+      <path d="M8 10L30 20L8 30L16 20Z" fill="#F7D58B"/><path d="M22 8L44 20L22 32L30 20Z" fill="#FFF3C4"/>
+      <rect x="18" y="18.6" width="176" height="2.8" rx="1.4" fill="url(#n-g)"/>
+      <path d="M190 9L220 20L190 31L197 20Z" fill="#FFF3C4"/>
+    </svg>
+  </div>
+  <div class="n-name">Ramya</div>
+  <div class="n-ta" lang="ta"><b>என்னவளுக்காக என்னால் முடிந்த<br>ஒரு சிறிய பரிசு <i>♥</i></b></div>
+  <div class="n-gift">
+    <svg viewBox="0 0 220 220" aria-hidden="true">
+      <defs>
+        <radialGradient id="n-gGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD27A" stop-opacity=".75"/><stop offset=".5" stop-color="#FF5C97" stop-opacity=".22"/><stop offset="1" stop-color="#FF5C97" stop-opacity="0"/></radialGradient>
+        <linearGradient id="n-boxG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8337F"/><stop offset=".6" stop-color="#A3124F"/><stop offset="1" stop-color="#6E0B36"/></linearGradient>
+        <linearGradient id="n-lidG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF5C97"/><stop offset="1" stop-color="#B3125F"/></linearGradient>
+        <linearGradient id="n-ribG" x1="0" x2="1"><stop offset="0" stop-color="#C98A2C"/><stop offset=".45" stop-color="#FFF3C4"/><stop offset=".6" stop-color="#F5C04A"/><stop offset="1" stop-color="#B9822C"/></linearGradient>
+        <linearGradient id="n-rayG" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFE9A8" stop-opacity=".9"/><stop offset="1" stop-color="#FFE9A8" stop-opacity="0"/></linearGradient>
+      </defs>
+      <g class="n-rays">
+        <path d="M110 104L96 -40H124Z M110 104L201 -6L219 16Z M110 104L250 90V118Z M110 104L219 192L201 214Z M110 104L-30 90V118Z M110 104L19 -6L1 16Z M110 104L1 192L19 214Z M110 104L58 -30L84 -38Z M110 104L162 -30L136 -38Z" fill="url(#n-rayG)"/>
+      </g>
+      <ellipse class="n-glow" cx="110" cy="128" rx="104" ry="96" fill="url(#n-gGlow)"/>
+      <ellipse cx="110" cy="208" rx="72" ry="8" fill="rgba(0,0,0,.4)"/>
+      <g class="n-fl">
+        <rect x="40" y="104" width="140" height="98" rx="6" fill="url(#n-boxG)"/>
+        <g fill="#F7D58B" opacity=".55"><circle cx="58" cy="124" r="2"/><circle cx="78" cy="150" r="2"/><circle cx="60" cy="178" r="2"/><circle cx="142" cy="122" r="2"/><circle cx="162" cy="148" r="2"/><circle cx="146" cy="182" r="2"/><circle cx="84" cy="188" r="1.6"/><circle cx="136" cy="160" r="1.6"/></g>
+        <rect x="40" y="104" width="140" height="9" fill="rgba(0,0,0,.22)"/>
+        <rect x="99" y="104" width="22" height="98" fill="url(#n-ribG)"/>
+        <g class="n-lid">
+          <rect x="31" y="84" width="158" height="27" rx="5" fill="url(#n-lidG)"/>
+          <rect x="31" y="84" width="158" height="5" rx="2.5" fill="#fff" opacity=".22"/>
+          <rect x="97" y="84" width="26" height="27" fill="url(#n-ribG)"/>
+          <path d="M110 86C90 54 64 58 70 76C74 88 96 88 110 86Z" fill="url(#n-ribG)"/>
+          <path d="M110 86C130 54 156 58 150 76C146 88 124 88 110 86Z" fill="url(#n-ribG)"/>
+          <path d="M110 86C96 70 82 68 80 74" fill="none" stroke="#B9822C" stroke-width="1.4" opacity=".6"/>
+          <path d="M110 86C124 70 138 68 140 74" fill="none" stroke="#B9822C" stroke-width="1.4" opacity=".6"/>
+          <circle cx="110" cy="85" r="8" fill="#F5C04A" stroke="#B9822C" stroke-width="1.2"/>
+          <circle cx="107" cy="82" r="2.4" fill="#fff" opacity=".7"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div class="n-tap">TAP TO OPEN YOUR GIFT</div>
+</div>
+</div>
+
+<!-- ===== SHARED SVG DEFINITIONS ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="roseShade" cx=".5" cy=".45" r=".56"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset=".68" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#3C001E" stop-opacity=".42"/></radialGradient>
+    <radialGradient id="bulb" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE9A8" stop-opacity=".95"/><stop offset=".4" stop-color="#FFD27A" stop-opacity=".45"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
+
+    <symbol id="rose" viewBox="-20 -20 40 40">
+      <circle r="19" fill="currentColor"/><circle r="19" fill="url(#roseShade)"/>
+      <path d="M-12 -2C-12 -14 4 -17 11 -8C17 0 10 14 -2 14C-12 14 -15 4 -9 -1C-4 -5 5 -4 5 2C5 7 -2 8 -3 4" fill="none" stroke="rgba(70,0,35,.45)" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M-9 -12C-4 -17 5 -17 9 -13" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="blossom" viewBox="-20 -20 40 40">
+      <g fill="currentColor">
+        <path id="bp" d="M0 0C-10 -5 -10 -18 -1.6 -18.6L0 -15.4L1.6 -18.6C10 -18 10 -5 0 0Z"/>
+        <use href="#bp" transform="rotate(72)"/><use href="#bp" transform="rotate(144)"/><use href="#bp" transform="rotate(216)"/><use href="#bp" transform="rotate(288)"/>
+      </g>
+      <g fill="none" stroke="rgba(150,20,80,.28)" stroke-width="1" stroke-linecap="round"><path d="M0 -4V-12"/><path d="M0 -4V-12" transform="rotate(72)"/><path d="M0 -4V-12" transform="rotate(144)"/><path d="M0 -4V-12" transform="rotate(216)"/><path d="M0 -4V-12" transform="rotate(288)"/></g>
+      <circle r="3.4" fill="#FFD27A"/>
+    </symbol>
+    <symbol id="daisy" viewBox="-20 -20 40 40">
+      <g fill="currentColor">
+        <ellipse id="dp" cx="0" cy="-11.5" rx="4.2" ry="8"/>
+        <use href="#dp" transform="rotate(45)"/><use href="#dp" transform="rotate(90)"/><use href="#dp" transform="rotate(135)"/><use href="#dp" transform="rotate(180)"/><use href="#dp" transform="rotate(225)"/><use href="#dp" transform="rotate(270)"/><use href="#dp" transform="rotate(315)"/>
+      </g>
+      <circle r="5.4" fill="#F5B04A"/><circle r="2.2" fill="#FFE29A" cx="-1" cy="-1"/>
+    </symbol>
+    <symbol id="leaf" viewBox="0 0 26 10"><path d="M0 5C6 -2 18 -2 26 5C18 12 6 12 0 5Z" fill="currentColor"/></symbol>
+    <symbol id="heart" viewBox="0 0 32 30"><path d="M16 29C3 19 0 12 4 6C8 1 14 3 16 8C18 3 24 1 28 6C32 12 29 19 16 29Z" fill="currentColor"/><path d="M8 8C9 6 11 6 12 7" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.6" stroke-linecap="round"/></symbol>
+
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+    <symbol id="i-music-off" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><path d="M3 3l18 18"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
+    <symbol id="i-replay" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===== BACKGROUND ===== -->
+<div class="bg" aria-hidden="true">
+  <div class="bg-sky"></div>
+  <div class="bokeh">
+    <i style="--x:6%;--y:12%;--s:220px;--d:14s"></i>
+    <i class="pk" style="--x:70%;--y:6%;--s:300px;--d:18s"></i>
+    <i class="lv" style="--x:38%;--y:44%;--s:340px;--d:20s"></i>
+    <i style="--x:84%;--y:56%;--s:200px;--d:16s"></i>
+    <i class="pk" style="--x:-4%;--y:64%;--s:280px;--d:22s"></i>
+    <i class="lv" style="--x:60%;--y:82%;--s:260px;--d:17s"></i>
+  </div>
+  <canvas id="stars"></canvas>
+</div>
+<div class="lights" id="lights" aria-hidden="true"></div>
+<div class="fx" id="fxPetals" aria-hidden="true"></div>
+<div class="fx" id="fxHearts" aria-hidden="true"></div>
+<div class="fx" id="fxButterflies" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div id="burst" aria-hidden="true"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="hdr-in">
+    <nav class="nav" id="nav" aria-label="Story steps">
+      <a href="#home" data-go="home">Home</a>
+      <a href="#memories" data-go="memories">Our Memories</a>
+      <a href="#letter" data-go="letter">Love Letter</a>
+      <a href="#surprise" data-go="surprise">Birthday Surprise</a>
+      <a href="#final" data-go="final">Final Message</a>
+    </nav>
+    <button class="icon-btn" id="musicBtn" type="button" aria-pressed="false" aria-label="Play music">
+      <svg class="ic on" aria-hidden="true"><use href="#i-music"/></svg>
+      <svg class="ic off" aria-hidden="true"><use href="#i-music-off"/></svg>
+    </button>
+    <button class="icon-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+      <svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== STEP 1: HOME ===== -->
+  <section class="stage is-active in" id="stage-home" aria-labelledby="home-title">
+    <div class="hero">
+      <div class="hero-copy">
+        <h1 class="hero-title" id="home-title" tabindex="-1" data-focus>
+          <span class="t1">Happy Birthday,</span>
+          <span class="t2">Ramya <span class="em">❤️</span></span>
+        </h1>
+        <div class="hero-poem" lang="ta">
+          <p>அதிகம் பேசாத உன் மௌனம்<br>அன்பின் ஆயிரம் மொழி பேசும்.</p>
+          <p>எத்தனை சண்டை போட்டாலும்<br>மீண்டும் என்னிடம் வந்து பேசுவாய்.</p>
+          <p>என்னை முழுதாய் நம்பும் நீ,<br>என் ஒவ்வொரு அடியிலும்<br>துணையாய் நிற்கிறாய்.</p>
+        </div>
+        <button class="btn btn-primary" type="button" id="storyBtn">Let Our Journey Begin <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+
+      <div class="mosaic" id="mosaic" role="img" aria-label="A heart made of 46 photos of Ramya"></div>
+    </div>
+  </section>
+
+  <!-- ===== STEP 2: OUR MEMORIES ===== -->
+  <section class="stage" id="stage-memories" aria-labelledby="mem-title">
+    <div class="stage-head">
+      <h2 class="stage-title" id="mem-title" tabindex="-1" data-focus>Memories</h2>
+      <p class="lead">Every picture captures a moment worth remembering.</p>
+    </div>
+    <div class="mem-grid" id="memGrid"></div>
+    <div class="mem-note" id="memNote" lang="ta"><svg aria-hidden="true"><use href="#heart"/></svg><p></p></div>
+    <div class="stage-foot">
+      <button class="btn btn-primary btn-ta" type="button" data-go="letter" lang="ta">உனக்காக ஒன்னு வச்சிருக்கேன்… பாக்குறியா? 💌 <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    </div>
+  </section>
+
+  <!-- ===== STEP 3: LOVE LETTER ===== -->
+  <section class="stage" id="stage-letter" aria-labelledby="letter-title">
+    <div class="stage-head">
+      <h2 class="stage-title" id="letter-title" tabindex="-1" data-focus>A Letter For My Thanga Mayilu</h2>
+    </div>
+    <div class="letter-zone" id="letterZone">
+      <div class="env-wrap">
+        <button class="env" id="envBtn" type="button" aria-label="Open the letter">
+          <span class="sc-paper"><b>For My<br>Thanga Mayilu</b></span>
+          <span class="sc-roll top"></span>
+          <span class="sc-roll bot"></span>
+          <span class="sc-ribbon"></span>
+          <span class="sc-bow"><svg viewBox="0 0 150 124" aria-hidden="true"><defs><linearGradient id="bowG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8FB8"/><stop offset=".55" stop-color="#FF5C97"/><stop offset="1" stop-color="#B3125F"/></linearGradient></defs>
+            <path d="M75 62C52 30 14 26 10 48C6 70 44 76 75 62Z" fill="url(#bowG)"/><path d="M75 62C98 30 136 26 140 48C144 70 106 76 75 62Z" fill="url(#bowG)"/>
+            <path d="M30 46C42 44 58 52 70 60M120 46C108 44 92 52 80 60" stroke="#B3125F" stroke-width="2" fill="none" opacity=".5"/>
+            <path d="M70 66L48 116L60 110L66 122L75 70ZM80 66L102 116L90 110L84 122L75 70Z" fill="#D81B72"/>
+            <circle cx="75" cy="62" r="17" fill="#C8102E"/><circle cx="75" cy="62" r="13" fill="none" stroke="#FF8FB8" stroke-width="1.5" opacity=".7"/>
+            <path d="M75 71C67 65 65 61 67.5 57.5C70 54.5 73.5 55.5 75 58.5C76.5 55.5 80 54.5 82.5 57.5C85 61 83 65 75 71Z" fill="#FFE29A"/></svg></span>
+          <span class="sc-flower f1" aria-hidden="true">🌹</span><span class="sc-flower f2" aria-hidden="true">🌸</span>
+          <span class="sc-spark k1" aria-hidden="true">✦</span><span class="sc-spark k2" aria-hidden="true">✦</span><span class="sc-spark k3" aria-hidden="true">✦</span><span class="sc-spark k4" aria-hidden="true">✦</span>
+        </button>
+        <p class="hint">Tap the scroll to open 💌</p>
+      </div>
+      <article class="paper" id="paper" aria-hidden="true">
+        <div class="paper-fx" id="paperFx" aria-hidden="true">
+          <svg class="wm" viewBox="0 0 32 30"><path d="M16 29C3 19 0 12 4 6C8 1 14 3 16 8C18 3 24 1 28 6C32 12 29 19 16 29Z"/></svg>
+          <svg class="cor tl" viewBox="0 0 120 120"><path d="M6 114C6 40 40 6 114 6" fill="none" stroke="#E58AB0" stroke-width="2" stroke-linecap="round"/><path d="M20 70c-10-4-14-12-10-18 8 2 12 10 10 18zM40 40c-2-10 2-18 10-20 2 8-2 16-10 20zM70 22c4-9 12-12 19-10-3 8-11 12-19 10z" fill="#7FBF94"/><g transform="translate(26 92)"><circle r="7" fill="#FF8FB8"/><circle r="3.2" fill="#FFD27A"/></g><g transform="translate(58 30)"><circle r="6" fill="#C9B6FF"/><circle r="2.6" fill="#fff"/></g><g transform="translate(98 12)"><circle r="5" fill="#FF5C97"/><circle r="2.2" fill="#FFE29A"/></g><path d="M16 46c-4-3-5.4-5.4-4-7.4 1.3-1.8 3.4-1.1 4 .6.6-1.7 2.7-2.4 4-.6 1.4 2 0 4.4-4 7.4z" fill="#FF5C97"/></svg>
+          <svg class="cor br" viewBox="0 0 120 120"><path d="M6 114C6 40 40 6 114 6" fill="none" stroke="#E58AB0" stroke-width="2" stroke-linecap="round"/><path d="M20 70c-10-4-14-12-10-18 8 2 12 10 10 18zM40 40c-2-10 2-18 10-20 2 8-2 16-10 20zM70 22c4-9 12-12 19-10-3 8-11 12-19 10z" fill="#7FBF94"/><g transform="translate(26 92)"><circle r="7" fill="#C9B6FF"/><circle r="3.2" fill="#fff"/></g><g transform="translate(58 30)"><circle r="6" fill="#FF8FB8"/><circle r="2.6" fill="#FFD27A"/></g><g transform="translate(98 12)"><circle r="5" fill="#FF5C97"/><circle r="2.2" fill="#FFE29A"/></g><path d="M16 46c-4-3-5.4-5.4-4-7.4 1.3-1.8 3.4-1.1 4 .6.6-1.7 2.7-2.4 4-.6 1.4 2 0 4.4-4 7.4z" fill="#FF5C97"/></svg>
+        </div>
+        <span class="stk s1" aria-hidden="true">🌸</span><span class="stk s2" aria-hidden="true">💕</span><span class="stk s3" aria-hidden="true">🦋</span><span class="stk s4" aria-hidden="true">💐</span><span class="stk s5" aria-hidden="true">✨</span>
+        <p class="hello" id="letterHello"></p>
+        <p class="orn" aria-hidden="true">♥</p>
+        <p class="type" id="letterType" aria-hidden="true"></p>
+        <figure class="promise" id="promise" hidden><span class="pr-photo"><img id="promiseImg" alt="Our hands, held together" decoding="async"></span><figcaption id="promiseCap"></figcaption></figure>
+        <p class="letter-q" id="letterQ" hidden></p>
+        <p class="sr-only" id="letterFull"></p>
+        <button class="skip" id="skipType" type="button" hidden>Show the whole letter</button>
+        <div class="ask" id="ask" hidden>
+          <button class="btn btn-primary btn-yes" id="yesBtn" type="button"></button>
+          <button class="btn btn-no" id="noBtn" type="button"></button>
+        </div>
+        <p class="yes-reply" id="yesReply" hidden></p>
+      </article>
+    </div>
+    <div class="stage-foot">
+      <button class="btn btn-primary pop-in" id="toSurprise" type="button" data-go="surprise" hidden>One More Surprise <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    </div>
+  </section>
+
+  <!-- ===== STEP 4: BIRTHDAY SURPRISE ===== -->
+  <section class="stage" id="stage-surprise" aria-labelledby="surprise-title">
+    <div class="stage-head">
+      <h2 class="stage-title" id="surprise-title" tabindex="-1" data-focus>Gift to My Girl</h2>
+      <p class="lead" id="giftHint">Tap the gift box and see what is inside.</p>
+    </div>
+    <div class="gift-zone">
+      <button class="gift" id="gift" type="button" aria-label="Open the gift box">
+        <span class="halo" aria-hidden="true"></span>
+        <span class="beam"></span>
+        <span class="spark" style="--x:-6%;--y:30%;--d:0s" aria-hidden="true"></span>
+        <span class="spark" style="--x:96%;--y:22%;--d:.7s" aria-hidden="true"></span>
+        <span class="spark" style="--x:102%;--y:70%;--d:1.4s" aria-hidden="true"></span>
+        <span class="spark" style="--x:-12%;--y:78%;--d:2.1s" aria-hidden="true"></span>
+        <span class="spark sm" style="--x:20%;--y:4%;--d:1s" aria-hidden="true"></span>
+        <span class="spark sm" style="--x:78%;--y:0%;--d:1.8s" aria-hidden="true"></span>
+        <span class="gheart" style="--x:30%;--d:0s" aria-hidden="true">♥</span>
+        <span class="gheart" style="--x:62%;--d:1.3s" aria-hidden="true">♥</span>
+        <span class="gheart" style="--x:46%;--d:2.6s" aria-hidden="true">♥</span>
+        <span class="box"></span>
+        <span class="tag"><i aria-hidden="true"></i>For my girl ♥</span>
+        <span class="lid">
+          <svg class="bow" viewBox="0 0 140 112" aria-hidden="true">
+            <defs>
+              <linearGradient id="bowSatin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8AA8"/><stop offset=".45" stop-color="#E8285A"/><stop offset="1" stop-color="#9E0C36"/></linearGradient>
+              <linearGradient id="bowFront" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6F93"/><stop offset="1" stop-color="#C8164A"/></linearGradient>
+              <linearGradient id="bowTail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D21A4B"/><stop offset="1" stop-color="#8E0A30"/></linearGradient>
+              <radialGradient id="bowKnot" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#FF9DB5"/><stop offset=".5" stop-color="#E8285A"/><stop offset="1" stop-color="#9E0C36"/></radialGradient>
+            </defs>
+            <!-- long curling tails -->
+            <path d="M66 50C58 70 50 86 36 106l11-3 3 9C64 92 70 72 73 52z" fill="url(#bowTail)"/>
+            <path d="M74 50C82 70 90 86 104 106l-11-3-3 9C76 92 70 72 67 52z" fill="url(#bowTail)"/>
+            <!-- big back loops -->
+            <path d="M70 46C52 8 4 0 6 32c2 26 40 26 64 14z" fill="url(#bowSatin)"/>
+            <path d="M70 46C88 8 136 0 134 32c-2 26-40 26-64 14z" fill="url(#bowSatin)"/>
+            <path d="M68 44C54 20 22 14 20 30c-1 12 24 18 48 14z" fill="#7A0828" opacity=".35"/>
+            <path d="M72 44C86 20 118 14 120 30c1 12-24 18-48 14z" fill="#7A0828" opacity=".35"/>
+            <!-- smaller front loops -->
+            <path d="M70 46C56 32 26 34 28 50c2 12 26 10 42-4z" fill="url(#bowFront)"/>
+            <path d="M70 46C84 32 114 34 112 50c-2 12-26 10-42-4z" fill="url(#bowFront)"/>
+            <!-- satin shine -->
+            <path d="M14 22c10-12 30-8 40 6" stroke="#FFD0DC" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".85"/>
+            <path d="M126 22c-10-12-30-8-40 6" stroke="#FFD0DC" stroke-width="3" fill="none" stroke-linecap="round" opacity=".5"/>
+            <path d="M34 44c6-5 16-6 24-2" stroke="#FFD0DC" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/>
+            <!-- knot -->
+            <rect x="59" y="35" width="22" height="22" rx="8" fill="url(#bowKnot)" stroke="#8E0A30" stroke-width="1.2"/>
+            <ellipse cx="65" cy="41" rx="4" ry="2.5" fill="#FFE0E8" opacity=".85"/>
+          </svg>
+        </span>
+      </button>
+      <div class="wish" id="wish" aria-live="polite">
+        <h3 class="wish-title" id="wishTitle"></h3>
+        <p id="wishText"></p>
+        <p class="gift-note" id="giftNote"></p>
+        <p class="gift-ask" id="giftAsk"></p>
+        <div class="ask" id="giftChoice">
+          <button class="btn btn-primary" id="giftYes" type="button"></button>
+          <button class="btn btn-no" id="giftNo" type="button"></button>
+        </div>
+        <p class="gift-tease" id="giftTease" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STEP 5: FINAL MESSAGE ===== -->
+  <section class="stage" id="stage-final" aria-labelledby="final-title">
+    <div class="final">
+      <h2 class="stage-title" id="final-title" tabindex="-1" data-focus style="margin:22px 0 26px">Forever, My Love</h2>
+      <div class="frame">
+        <div class="pol-back" aria-hidden="true"></div>
+        <div class="pol">
+          <div class="mat">
+            <svg class="corner tl" viewBox="0 0 34 34" aria-hidden="true"><path d="M3 31V13C3 7 7 3 13 3h18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 31V17c0-5 3-8 8-8h14" fill="none" stroke="currentColor" stroke-width="1"/><path d="M13 13c5-6 12-2 8 3-3 3-7 0-4-2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="3" cy="31" r="2" fill="currentColor"/><circle cx="31" cy="3" r="2" fill="currentColor"/></svg><svg class="corner tr" viewBox="0 0 34 34" aria-hidden="true"><path d="M3 31V13C3 7 7 3 13 3h18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 31V17c0-5 3-8 8-8h14" fill="none" stroke="currentColor" stroke-width="1"/><path d="M13 13c5-6 12-2 8 3-3 3-7 0-4-2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="3" cy="31" r="2" fill="currentColor"/><circle cx="31" cy="3" r="2" fill="currentColor"/></svg>
+            <svg class="corner bl" viewBox="0 0 34 34" aria-hidden="true"><path d="M3 31V13C3 7 7 3 13 3h18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 31V17c0-5 3-8 8-8h14" fill="none" stroke="currentColor" stroke-width="1"/><path d="M13 13c5-6 12-2 8 3-3 3-7 0-4-2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="3" cy="31" r="2" fill="currentColor"/><circle cx="31" cy="3" r="2" fill="currentColor"/></svg><svg class="corner br" viewBox="0 0 34 34" aria-hidden="true"><path d="M3 31V13C3 7 7 3 13 3h18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 31V17c0-5 3-8 8-8h14" fill="none" stroke="currentColor" stroke-width="1"/><path d="M13 13c5-6 12-2 8 3-3 3-7 0-4-2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="3" cy="31" r="2" fill="currentColor"/><circle cx="31" cy="3" r="2" fill="currentColor"/></svg>
+            <div class="frame-in" id="finalMedia"></div>
+            <p class="pol-cap">Our first click <span aria-hidden="true">♥</span></p>
+          </div>
+          <svg class="bow" viewBox="0 0 120 72" aria-hidden="true">
+            <defs>
+              <linearGradient id="satin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF9CC2"/><stop offset=".5" stop-color="#FF5C97"/><stop offset="1" stop-color="#D63C75"/></linearGradient>
+              <linearGradient id="satinHi" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE3EE"/><stop offset="1" stop-color="#FF8FB8" stop-opacity="0"/></linearGradient>
+            </defs>
+            <path d="M56 36L38 68l9-4 4 8 11-34z" fill="#C2306A"/><path d="M64 36l18 32-9-4-4 8-11-34z" fill="#C2306A"/>
+            <path d="M60 30C42 4 6 4 10 26c3 18 32 16 50 4z" fill="url(#satin)"/><path d="M60 30C78 4 114 4 110 26c-3 18-32 16-50 4z" fill="url(#satin)"/>
+            <path d="M54 27C42 12 20 10 18 20c3-5 20-4 36 7z" fill="url(#satinHi)"/><path d="M66 27c12-15 34-17 36-7-3-5-20-4-36 7z" fill="url(#satinHi)"/>
+            <rect x="51" y="21" width="18" height="18" rx="6" fill="#E8457F"/><circle cx="60" cy="30" r="3.4" fill="#FFE7A3"/>
+          </svg>
+          <svg class="fl" style="right:-22px;top:-20px;color:#FFD1E3" viewBox="-20 -20 40 40" aria-hidden="true"><use href="#blossom" x="-20" y="-20" width="40" height="40"/></svg>
+          <svg class="fl" style="right:14px;top:-26px;color:#C9B6FF;width:34px" viewBox="-20 -20 40 40" aria-hidden="true"><use href="#daisy" x="-20" y="-20" width="40" height="40"/></svg>
+          <svg class="fl" style="left:-24px;bottom:-18px;color:#FF5C97" viewBox="-20 -20 40 40" aria-hidden="true"><use href="#rose" x="-20" y="-20" width="40" height="40"/></svg>
+          <svg class="fl" style="left:20px;bottom:-26px;color:#FFD27A;width:36px" viewBox="-20 -20 40 40" aria-hidden="true"><use href="#daisy" x="-20" y="-20" width="40" height="40"/></svg>
+          <svg class="fl" style="left:-26px;bottom:26px;color:#FFB3D1;width:38px" viewBox="-20 -20 40 40" aria-hidden="true"><use href="#blossom" x="-20" y="-20" width="40" height="40"/></svg>
+        </div>
+        <span class="spark tw" style="left:-34px;top:18%;--s:20px" aria-hidden="true">✦</span>
+        <span class="spark tw" style="right:-40px;top:44%;--s:14px;animation-delay:-1.2s" aria-hidden="true">✦</span>
+        <span class="spark tw" style="left:-18px;top:58%;--s:11px;animation-delay:-.6s" aria-hidden="true">✦</span>
+        <span class="spark tw" style="right:-26px;bottom:6%;--s:18px;animation-delay:-2s" aria-hidden="true">✦</span>
+        <span class="spark tw" style="left:42%;bottom:-40px;--s:13px;animation-delay:-1.6s" aria-hidden="true">✦</span>
+      </div>
+      <p class="final-cap" id="finalCap" lang="ta"></p>
+      <blockquote class="final-quote" id="finalQuote"></blockquote>
+      <p class="final-note" id="finalNote"></p>
+      <button class="btn btn-ghost" type="button" id="replayBtn"><svg class="ic" aria-hidden="true"><use href="#i-replay"/></svg> Replay Our Story</button>
+    </div>
+    <div class="garden" id="finalGarden" aria-hidden="true"></div>
+    <footer class="love-foot">
+      <div class="foot-top"><span class="foot-hrt" aria-hidden="true">♥</span><p class="foot-sign">Forever Yours</p><span class="foot-hrt" aria-hidden="true">♥</span></div>
+      <p class="foot-ta" lang="ta">உன் கை பிடித்து, என்றும் உன்னுடன்</p>
+      <p class="foot-line">Made only for my Thanga Mayilu <b aria-hidden="true">♥</b></p>
+    </footer>
+  </section>
+</main>
+
+<!-- LIGHTBOX -->
+<!-- STORY: storybook opened by "Start Our Journey" (pages come from STORY in the script) -->
+<div class="story" id="story" role="dialog" aria-modal="true" aria-label="Our story" lang="ta" hidden>
+  <div class="st-float" id="stFloat" aria-hidden="true"></div>
+  <button class="st-close" type="button" id="stClose" lang="en">Skip ✕</button>
+  <div class="st-book" id="stBook">
+    <div class="st-side st-photo"><figure class="st-pol"><span class="tape"></span><img id="stImg" alt=""><figcaption class="cap" id="stCap" lang="en"></figcaption></figure></div>
+    <div class="st-side st-text"><p class="st-chap" id="stChap" lang="en"></p><h2 class="st-title" id="stTitle"></h2><div class="st-lines" id="stLines"></div><span class="st-num" id="stNum" lang="en"></span></div>
+  </div>
+  <div class="st-nav">
+    <button class="st-arrow" type="button" id="stPrev" aria-label="Previous page">‹</button>
+    <div class="st-dots" id="stDots"></div>
+    <button class="st-arrow" type="button" id="stNext" aria-label="Next page">›</button>
+  </div>
+</div>
+<audio id="song" src="assets/music/kalla-nikkiriye.mp3" preload="auto"></audio>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
