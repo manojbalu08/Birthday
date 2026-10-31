@@ -107,6 +107,8 @@ const LETTER = {
   yes: 'Yes 💖',
   // No changes its words each time she chases it
   no: ['No', 'நிஜமாவா? 🥺', 'யோசிச்சு சொல்லு 🙄', 'முடியாது போ 😜', 'ம்ஹூம்… 🙈', 'Yes தான் அழகு 💕', 'இங்க No-க்கு இடம் இல்ல 😂'],
+  // a little teddy pops up beside the running No, dances and says this
+  teddy: 'முடிஞ்சா புடிச்சுக்கோ 😜',
   reply: 'நீ சொன்ன இந்த "Yes" தான், என் வாழ்க்கையோட பெரிய பரிசு 💐'
 };
 
@@ -474,6 +476,7 @@ function dodge(px, py) {
   /* cornered: hop somewhere else on the screen */
   for (let i = 0; i < 30 && !ok; i++) { x = R(pad, maxX); y = R(top, maxY); ok = clear(x, y); }
   noBtn.style.left = x.toFixed(0) + 'px'; noBtn.style.top = y.toFixed(0) + 'px';
+  placeTeddy(x, y, w, h);
 }
 function runAway(e) { e.preventDefault(); const t = e.touches && e.touches[0]; dodge(t ? t.clientX : e.clientX, t ? t.clientY : e.clientY); }
 noBtn.addEventListener('pointerenter', (e) => { if (performance.now() - lastDodge > 250) runAway(e); });
@@ -488,6 +491,44 @@ addEventListener('pointermove', (e) => {
   if (e.clientX > r.left - 50 && e.clientX < r.right + 50 && e.clientY > r.top - 50 && e.clientY < r.bottom + 50) dodge(e.clientX, e.clientY);
 }, { passive: true });
 addEventListener('resize', () => { if (noBtn.classList.contains('flee')) dodge(); });
+
+/* a small teddy pops up beside the running No, dances and teases her (LETTER.teddy); it follows the button and goes when No goes home */
+const teddy = document.createElement('div');
+teddy.className = 'teddy'; teddy.setAttribute('aria-hidden', 'true');
+teddy.innerHTML = `<p class="teddy-say"></p><svg viewBox="0 0 64 76">
+  <circle cx="15" cy="12" r="8" fill="#A8703F"/><circle cx="49" cy="12" r="8" fill="#A8703F"/><circle cx="15" cy="12" r="4" fill="#E9B88F"/><circle cx="49" cy="12" r="4" fill="#E9B88F"/>
+  <g class="t-arm l"><ellipse cx="14" cy="50" rx="5" ry="10" fill="#B47A48" transform="rotate(32 14 50)"/></g>
+  <g class="t-arm r"><ellipse cx="50" cy="50" rx="5" ry="10" fill="#B47A48" transform="rotate(-32 50 50)"/></g>
+  <ellipse cx="23" cy="70" rx="7" ry="5.5" fill="#A8703F"/><ellipse cx="41" cy="70" rx="7" ry="5.5" fill="#A8703F"/><ellipse cx="23" cy="70.5" rx="3.6" ry="2.8" fill="#E9B88F"/><ellipse cx="41" cy="70.5" rx="3.6" ry="2.8" fill="#E9B88F"/>
+  <ellipse cx="32" cy="55" rx="14" ry="15" fill="#C48A5C"/><ellipse cx="32" cy="58" rx="8.5" ry="9.5" fill="#EBC7A2"/>
+  <path d="M32 61.5c-3-2.2-4.6-3.6-3.8-5.3.7-1.4 2.6-1.3 3.8.2 1.2-1.5 3.1-1.6 3.8-.2.8 1.7-.8 3.1-3.8 5.3z" fill="#FF5C97"/>
+  <circle cx="32" cy="25" r="17" fill="#C48A5C"/>
+  <ellipse cx="32" cy="31" rx="8.5" ry="6.5" fill="#EBC7A2"/><ellipse cx="32" cy="28.3" rx="3.2" ry="2.3" fill="#3A2418"/>
+  <path d="M28.6 32.2q3.4 3.2 6.8 0" fill="none" stroke="#3A2418" stroke-width="1.4" stroke-linecap="round"/>
+  <circle cx="25" cy="22" r="2.4" fill="#2A1A12"/><circle cx="39" cy="22" r="2.4" fill="#2A1A12"/><circle cx="25.8" cy="21.2" r=".8" fill="#fff"/><circle cx="39.8" cy="21.2" r=".8" fill="#fff"/>
+  <circle cx="20.5" cy="29" r="3" fill="#FF8FB0" opacity=".65"/><circle cx="43.5" cy="29" r="3" fill="#FF8FB0" opacity=".65"/>
+  <path d="M32 41.5l-7-4v8zM32 41.5l7-4v8z" fill="#FF5C97"/><circle cx="32" cy="41.5" r="2.2" fill="#D81B72"/>
+</svg>`;
+teddy.querySelector('.teddy-say').textContent = LETTER.teddy;
+document.body.appendChild(teddy);
+function placeTeddy(x, y, w, h) {
+  // No shrinks (scale around its centre) as she chases it: stand next to the size it really shows
+  const s = parseFloat(noBtn.style.getPropertyValue('--shrink')) || 1;
+  x += w * (1 - s) / 2; y += h * (1 - s) / 2; w *= s; h *= s;
+  const tw = teddy.offsetWidth, th = teddy.offsetHeight, gap = 8, yes = yesBtn.getBoundingClientRect();
+  // stand on the side away from Yes, unless the screen edge is in the way
+  let left = yes.left + yes.width / 2 > x + w / 2;
+  if (left && x - tw - gap < 8) left = false;
+  if (!left && x + w + gap + tw > innerWidth - 8) left = true;
+  const tx = left ? x - tw - gap : x + w + gap, ty = Math.max(96, y + h - th);
+  if (!teddy.classList.contains('on')) { teddy.classList.add('jump'); teddy.offsetWidth; }
+  teddy.style.left = tx.toFixed(0) + 'px'; teddy.style.top = ty.toFixed(0) + 'px';
+  // keep the speech bubble on screen
+  const sw = teddy.querySelector('.teddy-say').offsetWidth, want = tx + tw / 2 - sw / 2;
+  teddy.style.setProperty('--bx', (Math.min(Math.max(8, want), innerWidth - sw - 8) - want).toFixed(0) + 'px');
+  teddy.offsetWidth; teddy.classList.remove('jump'); teddy.classList.add('on');
+}
+function hideTeddy() { teddy.classList.remove('on'); }
 
 /* Yes: a bouquet rises up and blooms, then we go to the birthday surprise */
 function rose(x, y, r, [c1, c2, c3], dl) {
@@ -541,7 +582,7 @@ yesBtn.addEventListener('click', () => {
   setTimeout(showBouquet, reduce ? 0 : 900);
 });
 /* put No back next to Yes (it lives on <body> while running away) */
-function homeNo() { noBtn.classList.remove('flee', 'wobble'); noBtn.style.left = noBtn.style.top = ''; askBox.appendChild(noBtn); }
+function homeNo() { noBtn.classList.remove('flee', 'wobble'); noBtn.style.left = noBtn.style.top = ''; askBox.appendChild(noBtn); hideTeddy(); }
 function resetAsk() {
   saidYes = false; tries = 0; askBox.hidden = true; yesReply.hidden = true; $('#promise').hidden = $('#letterQ').hidden = true; homeNo();
   noBtn.textContent = LETTER.no[0]; noBtn.style.removeProperty('--shrink'); yesBtn.style.removeProperty('--grow');

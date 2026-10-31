@@ -775,3 +775,18 @@ html body,html body *:not(.em){font-family:'Cormorant Garamond','Noto Serif Tami
 /* ===== HEADER MENU SYMBOLS: a little gold symbol before each name (♡ Hello · ✦ Memories · ✉ Letter · ❀ Surprise · ∞ Forever) ===== */
 .nav a .ni{flex:none;width:.95em;height:.95em;margin-right:.45em;color:#F7D58B;filter:drop-shadow(0 0 4px rgba(247,213,139,.55))}
 .nav a[aria-current="page"]::before{content:none}   /* the gold symbol already marks the item; no extra heart in the phone menu */
+
+/* ===== TEDDY: pops up beside the running No button, dances and says "முடிஞ்சா புடிச்சுக்கோ" ===== */
+.teddy{position:fixed;left:0;top:0;z-index:64;width:64px;height:76px;pointer-events:none;opacity:0;scale:.3;transform-origin:50% 100%;transition:left .55s cubic-bezier(.3,1.4,.5,1),top .55s cubic-bezier(.3,1.4,.5,1),opacity .3s,scale .45s cubic-bezier(.3,1.7,.5,1)}
+.teddy.on{opacity:1;scale:1}
+.teddy.jump{transition:opacity .3s,scale .45s cubic-bezier(.3,1.7,.5,1)}
+.teddy svg{display:block;width:100%;height:100%;overflow:visible;transform-origin:50% 100%;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35));animation:teddyDance .55s ease-in-out infinite alternate}
+@keyframes teddyDance{from{transform:rotate(-9deg) translateY(0)}to{transform:rotate(9deg) translateY(-5px)}}
+.teddy .t-arm{transform-box:fill-box;animation:teddyWave .28s ease-in-out infinite alternate}
+.teddy .t-arm.l{transform-origin:100% 0}
+.teddy .t-arm.r{transform-origin:0 0;animation-delay:-.28s}
+@keyframes teddyWave{from{rotate:-28deg}to{rotate:22deg}}
+.teddy-say{position:absolute;left:50%;bottom:calc(100% + 8px);margin:0;padding:7px 13px;white-space:nowrap;border-radius:16px;background:#fff;color:#B3125F;font:700 15px/1.3 var(--tamil);box-shadow:0 8px 20px rgba(0,0,0,.3);transform:translateX(calc(-50% + var(--bx,0px)));animation:teddySay 1.1s ease-in-out infinite alternate}
+.teddy-say::after{content:"";position:absolute;top:100%;left:calc(50% - var(--bx,0px));margin-left:-7px;border:7px solid transparent;border-top-color:#fff}
+@keyframes teddySay{from{translate:0 0}to{translate:0 -3px}}
+@media(max-width:699px){.teddy{width:52px;height:62px}.teddy-say{font-size:13.5px;padding:6px 11px}}
