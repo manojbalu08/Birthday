@@ -3,8 +3,8 @@
 /* =====================================================================
    EDIT THESE: photos, captions, letter, wish and final message
    ===================================================================== */
-// her photos live in assets/images/ramya/ (originals in assets/images/ramya/original/). image = full photo (lightbox) · thumb = lighter copy for the cards · focus = part of the photo kept on the cards ("x% y%")
-// title + poem (Tamil) show under each photo; "\n" starts a new line. date is optional, e.g. date:'March 2025'; wide:true makes a card two columns wide
+// "நீ" part of the Memories page: her photos, in assets/images/ramya/. image = full photo (phones) · thumb = lighter copy for wider screens · focus = part of the photo kept on the cards ("x% y%")
+// title + poem (Tamil) show under each photo; "\n" starts a new line
 const MEMORIES = [
   { id:'photo-01', image:'assets/images/ramya/photo-01.jpg', thumb:'assets/images/ramya/thumbs/photo-01.jpg', focus:'42% 45%',
     title:'தென்னங்கீற்று', poem:'தென்னங்கீற்றும் தலை குனிகிறது\nஉன் சிரிப்பின் அழகுக்கு' },
@@ -20,8 +20,6 @@ const MEMORIES = [
     title:'சுருள் கூந்தல்', poem:'உன் சுருள் கூந்தலின் சுழலில்\nதொலைந்து போனேன் நான்' },
   { id:'photo-07', image:'assets/images/ramya/photo-07.jpg', thumb:'assets/images/ramya/thumbs/photo-07.jpg', focus:'50% 22%',
     title:'வெட்கப் புன்னகை', poem:'உன் வெட்கச் சிரிப்பில்\nஎன் உலகமே மயங்கி நிற்கிறது' },
-  { id:'photo-08', image:'assets/images/ramya/photo-08.jpg', thumb:'assets/images/ramya/thumbs/photo-08.jpg', focus:'50% 30%',
-    title:'படிகளில் தேவதை', poem:'நீ ஒவ்வொரு படி இறங்கும்போதும்\nஎன் இதயம் ஒரு படி ஏறுகிறது' },
   { id:'photo-09', image:'assets/images/ramya/photo-09.jpg', thumb:'assets/images/ramya/thumbs/photo-09.jpg', focus:'50% 35%',
     title:'ஊஞ்சல் ஆட்டம்', poem:'ஊஞ்சல் ஆடுவது நீ\nமனம் ஆடுவது நான்' },
   { id:'photo-10', image:'assets/images/ramya/photo-10.jpg', thumb:'assets/images/ramya/thumbs/photo-10.jpg', focus:'45% 28%',
@@ -55,33 +53,54 @@ const MEMORIES = [
   { id:'photo-24', image:'assets/images/ramya/photo-24.jpg', thumb:'assets/images/ramya/thumbs/photo-24.jpg', focus:'42% 30%',
     title:'திரும்பிப் பார்', poem:'நீ ஒரு முறை திரும்பிப் பார்த்தாய்\nஎன் உலகமே திரும்பிவிட்டது' },
   { id:'photo-25', image:'assets/images/ramya/photo-25.jpg', thumb:'assets/images/ramya/thumbs/photo-25.jpg', focus:'50% 35%',
-    title:'மேகங்களின் நடுவே', poem:'மேகங்கள் கூட நின்று பார்க்கின்றன\nஉன் சிரிப்பின் அழகை' },
-  // collage:[...] puts two photos in one card (as two overlapping prints); each photo takes image/thumb/focus like a normal card
-  { id:'us-rain-night', image:'assets/images/ramya/photo-26.jpg', thumb:'assets/images/ramya/thumbs/photo-26.jpg',
-    collage:[
-      { image:'assets/images/ramya/photo-26.jpg', thumb:'assets/images/ramya/thumbs/photo-26.jpg', focus:'50% 32%' },
-      { image:'assets/images/ramya/photo-28.jpg', thumb:'assets/images/ramya/thumbs/photo-28.jpg', focus:'50% 48%' },
-    ],
-    title:'மழையும் இரவும்', poem:'மழையிலும் இரவிலும்\nஎன் அருகில் நீ இருந்தால் போதும்' },
-  { id:'us-clouds', image:'assets/images/ramya/photo-27.jpg', thumb:'assets/images/ramya/thumbs/photo-27.jpg',
-    collage:[
-      { image:'assets/images/ramya/photo-27.jpg', thumb:'assets/images/ramya/thumbs/photo-27.jpg', focus:'50% 40%' },
-      { image:'assets/images/ramya/photo-30.jpg', thumb:'assets/images/ramya/thumbs/photo-30.jpg', focus:'50% 42%' },
-    ],
-    title:'மேகங்கள் சாட்சி', poem:'மேகங்கள் சாட்சியாக\nஉன் தோளில் என் கை' }
+    title:'மேகங்களின் நடுவே', poem:'மேகங்கள் கூட நின்று பார்க்கின்றன\nஉன் சிரிப்பின் அழகை' }
 ];
 
-// "Start Our Journey" opens this storybook; one entry = one page (photo + caption on the left, Tamil story on the right)
+// "நாம்" part: our photos, title + poem like hers. Photos in assets/images/us/ (us-01 … us-14, in the order they show)
+const US = [
+  // these six come first, in this order
+  { image:'assets/images/us/us-01.jpg', thumb:'assets/images/us/thumbs/us-01.jpg',
+    title:'வானம் தொடும் நேரம்', poem:'வானம் நம் தலைக்கு மேல்\nஉலகம் நம் கைக்குள்' },
+  { image:'assets/images/us/us-02.jpg', thumb:'assets/images/us/thumbs/us-02.jpg',
+    title:'மேகங்கள் சாட்சி', poem:'மேகங்கள் சாட்சியாக\nஉன் தோளில் என் கை' },
+  { image:'assets/images/us/us-03.jpg', thumb:'assets/images/us/thumbs/us-03.jpg',
+    title:'ஏரிக்கரை', poem:'அலைகள் கரையைத் தேடுவது போல்\nஎன் மனம் உன்னைத் தேடும்' },
+  { image:'assets/images/us/us-04.jpg', thumb:'assets/images/us/thumbs/us-04.jpg',
+    title:'தோளோடு தோள்', poem:'எந்தப் பாதையானாலும்\nதோளோடு தோள் நாம்' },
+  { image:'assets/images/us/us-05.jpg', thumb:'assets/images/us/thumbs/us-05.jpg',
+    title:'சின்ன சந்தோஷம்', poem:'எதிரே நீ அமர்ந்தால் போதும்\nஎந்த உணவும் விருந்துதான்' },
+  { image:'assets/images/us/us-06.jpg', thumb:'assets/images/us/thumbs/us-06.jpg',
+    title:'மலைக் காற்று', poem:'மலைக் காற்றும் மெதுவாய் வீசுகிறது\nநம் சிரிப்பைக் கலைக்காமல்' },
+  // then the rest
+  { image:'assets/images/us/us-07.jpg', thumb:'assets/images/us/thumbs/us-07.jpg',
+    title:'கைகோர்த்து', poem:'நீ கை கோர்த்த நாள் முதல்\nஎன் பயணத்தில் தனிமையில்லை' },
+  { image:'assets/images/us/us-08.jpg', thumb:'assets/images/us/thumbs/us-08.jpg',
+    title:'இரவின் ஒளி', poem:'இருள் சூழ்ந்த இரவிலும்\nஎனக்கு வெளிச்சம் நீதான்' },
+  { image:'assets/images/us/us-09.jpg', thumb:'assets/images/us/thumbs/us-09.jpg',
+    title:'பசுமை நினைவு', poem:'பச்சை மலைகளின் நடுவே\nபசுமையாய் ஒரு நினைவு' },
+  { image:'assets/images/us/us-10.jpg', thumb:'assets/images/us/thumbs/us-10.jpg',
+    title:'பூக்களின் கீழ்', poem:'மேலே பூக்கள் மழை பொழிய\nஅருகில் நீ புன்னகை பொழிய' },
+  { image:'assets/images/us/us-11.jpg', thumb:'assets/images/us/thumbs/us-11.jpg',
+    title:'கோயில் படிகள்', poem:'ஒவ்வொரு படியிலும் வேண்டினேன்\nஒவ்வொரு ஜென்மமும் நீயே வேண்டும் என்று' },
+  { image:'assets/images/us/us-12.jpg', thumb:'assets/images/us/thumbs/us-12.jpg',
+    title:'அலைகளின் ஓரம்', poem:'அலைகள் வந்து வந்து போகும்\nநம் கைகள் மட்டும் பிரியாது' },
+  { image:'assets/images/us/us-13.jpg', thumb:'assets/images/us/thumbs/us-13.jpg',
+    title:'மழையில் நாம்', poem:'மழை எவ்வளவு பெய்தாலும்\nஉன் புன்னகை போதும் குடையாக' },
+  { image:'assets/images/us/us-14.jpg', thumb:'assets/images/us/thumbs/us-14.jpg',
+    title:'இரவுப் பயணம்', poem:'நீண்ட இரவுப் பயணத்திலும்\nஎன் அருகில் நீ இருந்தால் போதும்' }
+];
+
+// the home "Memories" button opens this storybook; one entry = one page (photo + caption on the left, Tamil story on the right)
 const STORY = [
   { image:'assets/images/ramya/photo-13.jpg', cap:'once upon a time…', title:'ஒரு காலத்தில்…',
     text:'ஒரு ஊரில்,\nஅதிகம் பேசாத ஒரு அமைதியான பெண் இருந்தாள்.\nஅவள் பேசுவது குறைவு...\nஆனால் அவள் கண்கள் பேசுவது அதிகம்.\nஅவள் பெயர் — ரம்யா 🌸' },
   { image:'assets/images/ramya/photo-20.jpg', cap:'and then, him', title:'ஒரு சந்திப்பு',
     text:'ஒரு நாள் அவள் வாழ்க்கையில்\nஒருவன் வந்தான்.\nமுதலில் நண்பனாக...\nபிறகு நெருங்கிய தோழனாக...\nமெல்ல மெல்ல, அவள் உலகமாக ☕' },
-  { image:'assets/images/ramya/photo-28.jpg', cap:'our little moments', title:'சின்னச் சின்ன நொடிகள்',
+  { image:'assets/images/us/us-14.jpg', cap:'our little moments', title:'சின்னச் சின்ன நொடிகள்',
     text:'நீண்ட பேச்சுகள், சின்னச் சிரிப்புகள்,\nஇரவுப் பயணங்கள், செல்லச் சண்டைகள்...\nஒவ்வொரு நொடியையும்\nஅவன் தன் இதயத்தில்\nபத்திரமாய் சேர்த்து வைத்தான் 🌙' },
-  { image:'assets/images/ramya/photo-26.jpg', cap:'after every storm', title:'மழைக்குப் பின் வானவில்',
+  { image:'assets/images/us/us-13.jpg', cap:'after every storm', title:'மழைக்குப் பின் வானவில்',
     text:'மழை போல சில சண்டைகள் வந்தன.\nகோபம், மௌனம், கண்ணீர்...\nஆனாலும் ஒவ்வொரு முறையும்\nஅவளே மீண்டும் வந்து பேசினாள் —\nமழைக்குப் பின் வரும் வானவில் போல 🌈' },
-  { image:'assets/images/ramya/photo-27.jpg', cap:'my everything', title:'அவளே எல்லாம்',
+  { image:'assets/images/us/us-01.jpg', cap:'my everything', title:'அவளே எல்லாம்',
     text:'அவள் அவனை முழுதாய் நம்பினாள்.\nஅவன் தளரும்போது தாங்கினாள்,\nஅவன் ஜெயிக்கும்போது சிரித்தாள்.\nதோழி, ஆலோசகி, அக்கறைக்காரி,\nசண்டைக்காரி... அவனுக்கு அவளே எல்லாம் 🤍' },
   { image:'assets/images/ramya/photo-23.jpg', cap:'happy birthday ♥', title:'இன்று…',
     text:'இன்று அந்த அழகிய பெண்ணின் பிறந்தநாள் 🎂\nஇந்தக் கதையின் ஒவ்வொரு பக்கமும்\nஅவள் புன்னகையால் எழுதப்பட்டது.\nவா தங்கமே...\nநம் நினைவுகளுக்குள் போவோம் 💖',
@@ -101,7 +120,7 @@ const LETTER = {
 'உன் அப்பா அம்மா\nஇனி எனக்கும் உயிர் —\nஅவர்களுக்கு நான் இன்னொரு மகன் 🏡\n\n' +
 'யாருக்காகவும்\nஉன்னை விட்டுக்கொடுக்க மாட்டேன் 🔒\nஎன் கடைசி மூச்சு வரை\nஉன் நிழலாய் நானிருப்பேன் 💞',
   // our special photo (hand in hand) shows after the letter, just before the question
-  photo: 'assets/images/memories/hands.jpg',
+  photo: 'assets/images/us/hands.jpg',
   photoCaption: 'இந்தக் கையை\nவாழ்நாள் முழுதும்\nபிடித்திருக்க ஆசை 💗',
   question: 'என்ன நீ கல்யாணம் பண்ணிப்பியா?', // shows big after the letter, with a 💍
   yes: 'Yes 💖',
@@ -114,7 +133,6 @@ const LETTER = {
 
 const SURPRISE = {
   title: 'Happy Birthday',
-  titleTa: '', // optional Tamil line under the title; leave empty to hide it
   message: 'May this year wrap you in all the happiness you give to everyone around you. You deserve every wish, every dream and every beautiful thing life has to offer.',
   note: 'இந்த box-ல இருக்கிறது ஒரு wish மட்டும் தான்… உண்மையான gift-அ நான் உனக்காக தனியா ready பண்ணி வச்சிருக்கேன் 🎁 அதை open பண்ணி பாரு.',
   ask: 'பார்த்தியா? உனக்கு பிடிச்சிருக்கா?',
@@ -127,7 +145,7 @@ const SURPRISE = {
 };
 
 const FINAL = {
-  image: 'assets/images/memories/final-photo.jpg',
+  image: 'assets/images/us/final-photo.jpg',
   focus: '50% 45%',
   // shown right under the photo; "\n" starts a new line
   caption: 'கடற்கரை இரவில்,\nஅலைகள் சாட்சியாக\nநாம் எடுத்த முதல் புகைப்படம்.\n\nயாருக்காகவும் இல்லை,\nநமக்காக மட்டுமே எடுத்தது.\nகாலங்கள் கடந்தாலும்,\nஎன் இதயத்தில் இது என்றும் special ♥',
@@ -146,9 +164,7 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const small = () => innerWidth < 700;
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
-const timers = new Set();
-const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); fn(); }, ms); timers.add(id); return id; };
-const clearLater = () => { timers.forEach(clearTimeout); timers.clear(); };
+const later = (fn, ms) => setTimeout(fn, ms);
 
 function mulberry(a) { return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 const rnd = mulberry(20261031);                 // seeded: the garden looks the same on every load
@@ -335,32 +351,34 @@ menuBtn.addEventListener('click', () => setMenu(!navEl.classList.contains('open'
 addEventListener('hashchange', () => go(location.hash.slice(1)));
 
 /* =====================================================================
-   Memories gallery + lightbox
+   Memories gallery (நீ + நாம்)
    ===================================================================== */
 const flowerPh = (name) => `<div class="ph"><svg viewBox="-20 -20 40 40" aria-hidden="true" style="color:#FF8FB8"><use href="#blossom" x="-20" y="-20" width="40" height="40"/></svg><span>${esc(name)}</span></div>`;
 // phones show one big photo per row, so they get the full photo; wider screens get the lighter card copy
 const cardSrc = (m) => (innerWidth < 480 || !m.thumb ? m.image : m.thumb);
-function mediaMarkup(m, alt, { card = false } = {}) {
-  const src = card ? cardSrc(m) : m.image;
-  const pos = card && m.focus ? ` style="object-position:${esc(m.focus)}"` : '';
-  if (m.collage) return `<div class="collage">${m.collage.map((c) => `<div class="tile"><div class="pic">${mediaMarkup(c, alt, { card })}</div></div>`).join('')}</div>`;
-  return `${flowerPh('Add ' + m.image.split('/').pop())}<img src="${esc(src)}" alt="${esc(alt)}"${pos} loading="lazy" decoding="async">`;
+function mediaMarkup(m, alt) {
+  const pos = m.focus ? ` style="object-position:${esc(m.focus)}"` : '';
+  return `${flowerPh('Add ' + m.image.split('/').pop())}<img src="${esc(cardSrc(m))}" alt="${esc(alt)}"${pos} loading="lazy" decoding="async">`;
 }
 function hookImages(root) {
   // a missing photo fires "error" (always after this runs); removing it uncovers the flower placeholder underneath
   $$('img', root).forEach((img) => img.addEventListener('error', () => img.remove(), { once: true }));
 }
 
+const memCard = (m) => `
+    <article class="mem">
+      <div class="media">${mediaMarkup(m, m.title)}</div>
+      <div class="mem-body"><h3 class="mem-title" lang="ta">${esc(m.title)}</h3><p class="mem-poem" lang="ta">${esc(m.poem)}</p></div>
+    </article>`;
 function renderMemories() {
-  $('#memGrid').innerHTML = MEMORIES.map((m, i) => `
-    <article class="mem${m.wide ? ' wide' : ''}" data-i="${i}" style="--i:${i}">
-      <div class="media">${mediaMarkup(m, m.title, { card: true })}</div>
-      <div class="mem-body">${m.date ? `<p class="mem-date">${esc(m.date)}</p>` : ''}<h3 class="mem-title" lang="ta">${esc(m.title)}</h3><p class="mem-poem" lang="ta">${esc(m.poem)}</p></div>
-    </article>`).join('');
+  $('#memGrid').innerHTML = MEMORIES.map(memCard).join('');
+  $('#usGrid').innerHTML = US.map(memCard).join('');
   $('#memNote p').innerHTML = esc(MEM_NOTE).replace(/\*([^*]+)\*/g, '<b>$1</b>');
-  hookImages($('#memGrid'));
+  $$('.mem-grid').forEach(hookImages);
   watchCards();
 }
+// the நீ · நாம் buttons under the title jump to that part
+$$('[data-jump]').forEach((b) => b.addEventListener('click', () => $('#' + b.dataset.jump).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })));
 
 const cardWatch = !reduce && 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
   let n = 0;
@@ -374,14 +392,14 @@ const cardWatch = !reduce && 'IntersectionObserver' in window ? new Intersection
 }, { rootMargin: '0px 0px -6% 0px', threshold: 0.12 }) : null;
 function watchCards() {
   if (!cardWatch) return;
-  $('#memGrid').classList.add('reveal-on');
-  $$('#memGrid .mem').forEach((c) => { c.classList.remove('seen'); cardWatch.observe(c); });
+  $$('.mem-grid').forEach((g) => g.classList.add('reveal-on'));
+  $$('.mem-grid .mem').forEach((c) => { c.classList.remove('seen'); cardWatch.observe(c); });
 }
 
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
 /* =====================================================================
-   Love letter: envelope + typewriter
+   Love letter: scroll + typewriter
    ===================================================================== */
 const zone = $('#letterZone'), paper = $('#paper'), typeEl = $('#letterType'), skipBtn = $('#skipType'), nextBtn = $('#toSurprise'), envBtn = $('#envBtn');
 let typed = 0, typeTimer = 0, typing = false, letterOpen = false, follow = false;
@@ -431,12 +449,6 @@ function openLetter() {
     if (reduce) { typed = LETTER_CHARS.length; shown = LETTER.body; typeEl.textContent = LETTER.body; endTyping(); return; }
     typing = true; follow = true; paper.classList.add('typing'); skipBtn.hidden = false; typeStep();
   }, reduce ? 0 : 1500);
-}
-function resetLetter() {
-  clearTimeout(typeTimer); typing = false; follow = false; letterOpen = false; typed = 0; shown = ''; typeEl.textContent = '';
-  zone.classList.remove('opened', 'reading'); paper.classList.remove('typing'); paper.setAttribute('aria-hidden', 'true');
-  envBtn.disabled = false; nextBtn.hidden = true; skipBtn.hidden = true;
-  resetAsk();
 }
 envBtn.addEventListener('click', openLetter);
 skipBtn.addEventListener('click', finishTyping);
@@ -588,10 +600,6 @@ yesBtn.addEventListener('click', () => {
 });
 /* put No back next to Yes (it lives on <body> while running away) */
 function homeNo() { noBtn.classList.remove('flee', 'wobble'); noBtn.style.left = noBtn.style.top = ''; askBox.appendChild(noBtn); hideKitty(); }
-function resetAsk() {
-  saidYes = false; tries = 0; askBox.hidden = true; yesReply.hidden = true; $('#promise').hidden = $('#letterQ').hidden = true; homeNo();
-  noBtn.textContent = LETTER.no[0]; noBtn.style.removeProperty('--shrink'); yesBtn.style.removeProperty('--grow');
-}
 
 /* =====================================================================
    Birthday surprise: gift box, confetti, hearts and butterflies
@@ -599,7 +607,6 @@ function resetAsk() {
 const gift = $('#gift'), wish = $('#wish');
 let giftOpen = false;
 $('#wishTitle').textContent = SURPRISE.title + ' ';
-if (SURPRISE.titleTa) { const ta = document.createElement('span'); ta.className = 'wish-ta'; ta.textContent = SURPRISE.titleTa; $('#wishTitle').appendChild(ta); }
 $('#wishText').textContent = SURPRISE.message;
 $('#giftNote').textContent = SURPRISE.note; $('#giftAsk').textContent = SURPRISE.ask;
 
@@ -621,7 +628,6 @@ giftYes.addEventListener('click', () => {
   giftTease.textContent = SURPRISE.yesReply; giftTease.classList.add('yes');
   later(() => go('final'), reduce ? 1200 : 2600);
 });
-function resetGiftAsk() { giftNos = 0; giftTease.textContent = ''; giftTease.classList.remove('yes'); giftYes.disabled = giftNo.disabled = false; giftYes.style.transform = giftNo.style.transform = giftNo.style.opacity = giftNo.style.pointerEvents = ''; }
 
 const cf = $('#confetti'), cctx = cf.getContext('2d'); let pieces = [], cfRaf = 0;
 function sizeConfetti() { const dpr = Math.min(devicePixelRatio || 1, 2); cf.width = innerWidth * dpr; cf.height = innerHeight * dpr; cctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
@@ -674,27 +680,21 @@ function openGift() {
     later(() => wish.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }), reduce ? 0 : 700);
   }, reduce ? 0 : 600);
 }
-function resetGift() {
-  giftOpen = false; gift.disabled = false; gift.classList.remove('open', 'shake'); gift.setAttribute('aria-label', 'Open the gift box');
-  wish.classList.remove('show'); $('#giftHint').hidden = false; pieces = []; $('#burst').innerHTML = '';
-  resetGiftAsk();
-}
 gift.addEventListener('click', openGift);
 
 /* =====================================================================
-   Final message + replay
+   Final message
    ===================================================================== */
-$('#finalMedia').innerHTML = mediaMarkup({ image: FINAL.image, focus: FINAL.focus }, 'Us, together', { card: true });
+$('#finalMedia').innerHTML = mediaMarkup({ image: FINAL.image, focus: FINAL.focus }, 'Us, together');
 hookImages($('#finalMedia'));
 $('#finalCap').textContent = FINAL.caption; $('#finalQuote').textContent = FINAL.quote; $('#finalNote').textContent = FINAL.note;
-$('#replayBtn').addEventListener('click', () => { clearLater(); resetLetter(); resetGift(); watchCards(); go('home'); });
 
 /* =====================================================================
    Music (starts as the site opens; the site works fine without the file)
    ===================================================================== */
 const song = $('#song'), musicBtn = $('#musicBtn');
 // The song starts at the part that suits the site (1:03.5, a quiet moment) and then plays right to the end of the song, without cuts.
-// When it ends it starts again from that same point; "Replay Our Story" also takes it back there.
+// When it ends it starts again from that same point.
 const SONG = { start: 63.5, fadeIn: 2, fadeOut: 3 };
 const toSongStart = () => { song.currentTime = SONG.start; };
 song.volume = 0;
@@ -727,10 +727,23 @@ function autoStart() {
 }
 GESTURES.forEach(g => addEventListener(g, onGesture, true));
 autoStart();
-$('#replayBtn').addEventListener('click', () => { toSongStart(); autoStart(); });
+// Leaving the site (home button, another app, another tab, screen locked) pauses the song, and coming back
+// carries on from the same place. Phones otherwise keep playing it in the background until the tab is closed.
+let hidePaused = false;
+function pauseHidden() { if (!song.paused) { song.pause(); hidePaused = true; } }
+function resumeShown() {
+  if (!hidePaused || document.hidden) return;
+  hidePaused = false;
+  const r = song.play();
+  // if the browser wants a fresh touch first, it starts again on her next tap
+  if (r && r.catch) r.catch(() => { setPlaying(false); GESTURES.forEach(g => addEventListener(g, onGesture, true)); });
+}
+document.addEventListener('visibilitychange', () => { if (document.hidden) pauseHidden(); else resumeShown(); });
+addEventListener('pagehide', pauseHidden);
+addEventListener('pageshow', resumeShown);
 
 /* =====================================================================
-   Opening: the arrow writes "Happy Birthday"; her tap lets the balloon fly, then the home page plays
+   Opening "Golden Night": a gold arrow writes "Happy Birthday"; her tap opens the gift box, then the home page plays
    ===================================================================== */
 function playIntro(done = () => {}) {
   const el = $('#intro');
@@ -849,7 +862,7 @@ go((location.hash || '#home').slice(1));
 playIntro();
 
 /* =====================================================================
-   Story book ("Start Our Journey" → STORY pages → Memories)
+   Story book (home "Memories" button → STORY pages → Memories page)
    ===================================================================== */
 function initStory() {
   const box = $('#story'), book = $('#stBook'), dots = $('#stDots');
@@ -862,7 +875,7 @@ function initStory() {
     page = Math.max(0, Math.min(STORY.length - 1, i));
     const p = STORY[page], lines = p.text.split('\n');
     $('#stImg').src = p.image; $('#stCap').textContent = p.cap;
-    $('#stChap').textContent = `Chapter ${page + 1}`; $('#stTitle').textContent = p.title;
+    $('#stTitle').textContent = p.title;
     $('#stLines').innerHTML = lines.map((l, k) => `<p style="--i:${k}">${esc(l)}</p>`).join('') +
       (p.button ? `<button class="btn btn-primary st-cta" type="button" id="stEnd" style="--i:${lines.length}">${esc(p.button)} <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>` : '');
     $('#stNum').textContent = `${page + 1} / ${STORY.length}`;
@@ -888,7 +901,6 @@ function initStory() {
   $('#storyBtn').addEventListener('click', open);
   $('#stPrev').addEventListener('click', () => show(page - 1, -1));
   $('#stNext').addEventListener('click', () => show(page + 1));
-  $('#stClose').addEventListener('click', () => close(true));
   dots.addEventListener('click', (e) => { const b = e.target.closest('[data-p]'); if (b) show(+b.dataset.p, +b.dataset.p < page ? -1 : 1); });
   box.addEventListener('click', (e) => { if (e.target.closest('#stEnd')) close(true); });
   addEventListener('keydown', (e) => {
@@ -913,7 +925,7 @@ initStory();
 let photosFetched = false;
 function fetchPhotos() {
   if (photosFetched) return; photosFetched = true;
-  [...MEMORIES.map(cardSrc), FINAL.image].forEach((src) => { const im = new Image(); im.fetchPriority = 'low'; im.decoding = 'async'; im.src = src; });
+  [...[...MEMORIES, ...US].map(cardSrc), FINAL.image].forEach((src) => { const im = new Image(); im.fetchPriority = 'low'; im.decoding = 'async'; im.src = src; });
 }
 addEventListener('load', () => later(fetchPhotos, 1500), { once: true });
 later(fetchPhotos, 5000);

@@ -11,9 +11,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Serif+Tamil:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap">
 <!--
   HOW TO CUSTOMISE
-  - Words + photos: the MEMORIES, STORY, LETTER, SURPRISE and FINAL blocks at the top of js/main.js
-  - Photos:  assets/images/ramya/ (full size + thumbs/), assets/images/mosaic/ (home heart, big/ = sharp copies),
-             assets/images/memories/ (final-photo.jpg, hands.jpg)
+  - Words + photos: the MEMORIES, US, STORY, LETTER, SURPRISE and FINAL blocks at the top of js/main.js
+  - Photos:  assets/images/ramya/ (her photos, full size + thumbs/), assets/images/mosaic/ (home heart, big/ = sharp copies),
+             assets/images/us/ (photos of us both: us-01 … us-14 + thumbs/, final-photo.jpg, hands.jpg)
   - Music:   assets/music/kalla-nikkiriye.mp3
   - Styles:  css/style.css
   - Jump to a step:  index.html#memories  #letter  #surprise  #final   (add ?intro=0 to skip the opening)
@@ -127,7 +127,6 @@
     <symbol id="ni-flower" viewBox="0 0 24 24"><g fill="currentColor" stroke="#2A0A2E" stroke-width="1"><circle cx="12" cy="6.4" r="4.2"/><circle cx="17.4" cy="10.3" r="4.2"/><circle cx="15.3" cy="16.7" r="4.2"/><circle cx="8.7" cy="16.7" r="4.2"/><circle cx="6.6" cy="10.3" r="4.2"/></g><circle cx="12" cy="12.2" r="3.1" fill="#2A0A2E"/><circle cx="12" cy="12.2" r="1.7" fill="currentColor"/></symbol>
     <symbol id="ni-inf" viewBox="0 0 24 24"><path d="M12 12c-2-2.6-3.6-4-5.6-4a4 4 0 0 0 0 8c2 0 3.6-1.4 5.6-4zm0 0c2 2.6 3.6 4 5.6 4a4 4 0 0 0 0-8c-2 0-3.6 1.4-5.6 4z" fill="none" stroke="currentColor" stroke-width="2.6"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
-    <symbol id="i-replay" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
   </defs>
 </svg>
 
@@ -218,7 +217,7 @@
           <p>எத்தனை சண்டை போட்டாலும்<br>மீண்டும் என்னிடம் வந்து பேசுவாய்.</p>
           <p>என்னை முழுதாய் நம்பும் நீ,<br>என் ஒவ்வொரு அடியிலும்<br>துணையாய் நிற்கிறாய்.</p>
         </div>
-        <button class="btn btn-primary" type="button" id="storyBtn">Let Our Journey Begin <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <button class="btn btn-primary" type="button" id="storyBtn">Memories <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
       </div>
 
       <div class="mosaic" id="mosaic" role="img" aria-label="A heart made of 46 photos of Ramya"></div>
@@ -230,8 +229,11 @@
     <div class="stage-head">
       <h2 class="stage-title" id="mem-title" tabindex="-1" data-focus>Memories</h2>
       <p class="lead">Every picture captures a moment worth remembering.</p>
+      <div class="mem-jump" lang="ta"><button type="button" data-jump="mem-nee">நீ</button><button type="button" data-jump="mem-naam">நாம்</button></div>
     </div>
-    <div class="mem-grid" id="memGrid"></div>
+    <!-- two parts: நீ (her photos), நாம் (ours) -->
+    <section class="mem-sec" id="mem-nee" aria-labelledby="mem-nee-h"><h3 class="mem-head" id="mem-nee-h"><span><b lang="ta">நீ</b><small>you</small></span></h3><div class="mem-grid" id="memGrid"></div></section>
+    <section class="mem-sec" id="mem-naam" aria-labelledby="mem-naam-h"><h3 class="mem-head" id="mem-naam-h"><span><b lang="ta">நாம்</b><small>us</small></span></h3><div class="mem-grid tall" id="usGrid"></div></section>
     <div class="mem-note" id="memNote" lang="ta"><svg aria-hidden="true"><use href="#heart"/></svg><p></p></div>
     <div class="stage-foot">
       <button class="btn btn-primary" type="button" data-go="letter">A Letter For You <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
@@ -389,7 +391,6 @@
       <p class="final-cap" id="finalCap" lang="ta"></p>
       <blockquote class="final-quote" id="finalQuote"></blockquote>
       <p class="final-note" id="finalNote"></p>
-      <button class="btn btn-ghost" type="button" id="replayBtn"><svg class="ic" aria-hidden="true"><use href="#i-replay"/></svg> Replay Our Story</button>
     </div>
     <div class="garden" id="finalGarden" aria-hidden="true"></div>
     <footer class="love-foot">
@@ -400,14 +401,12 @@
   </section>
 </main>
 
-<!-- LIGHTBOX -->
-<!-- STORY: storybook opened by "Start Our Journey" (pages come from STORY in the script) -->
+<!-- STORY: storybook opened by the home "Memories" button (pages come from STORY in the script) -->
 <div class="story" id="story" role="dialog" aria-modal="true" aria-label="Our story" lang="ta" hidden>
   <div class="st-float" id="stFloat" aria-hidden="true"></div>
-  <button class="st-close" type="button" id="stClose" lang="en">Skip ✕</button>
   <div class="st-book" id="stBook">
     <div class="st-side st-photo"><figure class="st-pol"><span class="tape"></span><img id="stImg" alt=""><figcaption class="cap" id="stCap" lang="en"></figcaption></figure></div>
-    <div class="st-side st-text"><p class="st-chap" id="stChap" lang="en"></p><h2 class="st-title" id="stTitle"></h2><div class="st-lines" id="stLines"></div><span class="st-num" id="stNum" lang="en"></span></div>
+    <div class="st-side st-text"><h2 class="st-title" id="stTitle"></h2><div class="st-lines" id="stLines"></div><span class="st-num" id="stNum" lang="en"></span></div>
   </div>
   <div class="st-nav">
     <button class="st-arrow" type="button" id="stPrev" aria-label="Previous page">‹</button>

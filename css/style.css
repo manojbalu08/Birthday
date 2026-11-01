@@ -73,7 +73,6 @@ a{color:inherit}
 .hdr-in{position:relative;max-width:1280px;margin:0 auto;height:var(--hdr);display:flex;align-items:center;justify-content:flex-end;gap:14px;padding:0 20px}
 @keyframes shimmer{to{background-position:-200% center}}
 @keyframes heartBeat{0%,40%,100%{transform:scale(1)}10%{transform:scale(1.16)}20%{transform:scale(1)}30%{transform:scale(1.1)}}
-@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
 .nav{position:absolute;top:calc(100% + 6px);left:12px;right:12px;display:none;flex-direction:column;padding:10px;border-radius:20px;background:rgba(20,14,56,.96);border:1px solid rgba(255,255,255,.14);box-shadow:0 20px 50px rgba(0,0,0,.5)}
 .nav.open{display:flex}
 .nav a{position:relative;display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:12px;color:rgba(255,248,251,.8);text-decoration:none;font-weight:500;font-size:17px}
@@ -83,14 +82,12 @@ a{color:inherit}
 .icon-btn:hover{background:rgba(255,255,255,.16);transform:scale(1.06)}
 .icon-btn:active{transform:scale(.94)}
 .hdr-in .icon-btn{width:40px;height:40px;border-color:rgba(255,255,255,.35);background:transparent;color:#fff}
-.hdr-in .icon-btn:hover{background:rgba(255,255,255,.12)}
 #musicBtn.playing{border-color:var(--rose);color:#fff;background:linear-gradient(135deg,#FF5C97,#8E3FD1);animation:ring 2s ease-out infinite}
 @keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,92,151,.45)}100%{box-shadow:0 0 0 14px rgba(255,92,151,0)}}
 #musicBtn .off{display:none} #musicBtn:not(.playing) .on{display:none} #musicBtn:not(.playing) .off{display:block}
 @media(min-width:1000px){
-  .nav{position:static;display:flex;flex-direction:row;background:none;border:0;box-shadow:none;padding:0;gap:26px;margin-right:6px}
+  .nav{position:static;display:flex;flex-direction:row;background:none;border:0;box-shadow:none;padding:0;gap:28px;margin-right:6px}
   .nav a{min-height:40px;padding:0;border-radius:0;font-size:15px;background:none;transition:color .25s}
-  .nav a:hover{color:#fff}
   .nav a[aria-current="page"]{background:none}
   .nav a[aria-current="page"]::before{content:none}
   /* small glowing heart under the current page */
@@ -118,12 +115,9 @@ main{position:relative;z-index:2}
 .btn:active{transform:scale(.95)}
 /* a soft light sweeps across every button now and then */
 .btn::before{content:'';position:absolute;z-index:-1;top:0;bottom:0;left:-60%;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.6s ease-in-out infinite}
-@keyframes shine{0%,62%{left:-60%}100%{left:130%}}
 .btn-primary{background:linear-gradient(115deg,#FF6FA5,#D81B72 30%,#9B3FD6 65%,#FF8FB8) padding-box,linear-gradient(115deg,#FFE29A,#FF8FB8,#C9B6FF,#FFE29A) border-box;background-size:220% 100%,100% 100%;box-shadow:0 10px 30px rgba(216,27,114,.5),0 0 22px rgba(255,143,184,.35),inset 0 2px 0 rgba(255,255,255,.35);animation:btnFlow 6s ease-in-out infinite}
 .btn-primary:hover{box-shadow:0 16px 40px rgba(216,27,114,.7),0 0 34px rgba(255,143,184,.55),inset 0 2px 0 rgba(255,255,255,.35)}
 @keyframes btnFlow{0%,100%{background-position:0% 50%,0 0}50%{background-position:100% 50%,0 0}}
-.btn-ghost{background:linear-gradient(rgba(42,20,88,.6),rgba(42,20,88,.6)) padding-box,linear-gradient(115deg,#FFD27A,#FF8FB8,#C9B6FF) border-box;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 8px 24px rgba(10,8,32,.4)}
-.btn-ghost:hover{background:linear-gradient(rgba(75,29,110,.7),rgba(75,29,110,.7)) padding-box,linear-gradient(115deg,#FFD27A,#FF8FB8,#C9B6FF) border-box}
 .pop-in{animation:popIn .8s cubic-bezier(.2,.9,.3,1.2) both}
 .btn-primary.pop-in{animation:popIn .8s cubic-bezier(.2,.9,.3,1.2) both,btnFlow 6s ease-in-out .8s infinite}
 @keyframes popIn{from{opacity:0;transform:translateY(20px) scale(.9)}to{opacity:1;transform:none}}
@@ -151,20 +145,8 @@ main{position:relative;z-index:2}
 @media(min-width:720px){.mem-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}}
 .mem{--tilt:0deg;appearance:none;display:block;width:100%;padding:0;text-align:left;cursor:default;font:inherit;color:inherit;border:1px solid rgba(255,255,255,.18);border-radius:22px;overflow:hidden;background:linear-gradient(165deg,rgba(255,255,255,.13),rgba(255,255,255,.04));transform:rotate(var(--tilt));transition:transform .55s cubic-bezier(.2,.8,.3,1),opacity .8s ease,box-shadow .35s ease,border-color .35s}
 .mem:nth-child(odd){--tilt:-1.1deg} .mem:nth-child(even){--tilt:1deg}
-.mem.wide{--tilt:0deg}
-/* two-photo card: two full portrait prints, one at the top-left and one overlapping it at the bottom-right (they only touch at the corners, so no face is ever covered), small hearts fill the free corners */
-.media:has(.collage){container-type:size}
-.collage{position:absolute;inset:0;overflow:hidden;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.85),transparent 62%),linear-gradient(160deg,#FFE6F0,#EEE6FF 60%,#FFEFE2)}
-.collage::before,.collage::after{content:'♥';position:absolute;line-height:1;color:#FF5C97}
-.collage::before{top:7%;right:9%;font-size:16cqw;opacity:.35;transform:rotate(12deg)}
-.collage::after{bottom:8%;left:10%;font-size:11cqw;opacity:.25;transform:rotate(-14deg)}
-.collage .tile{--r:-4deg;position:absolute;top:3.5%;left:3.5%;z-index:1;width:min(47cqw,60cqh);aspect-ratio:3/4;padding:5px;background:#fff;border-radius:12px;box-shadow:0 12px 26px rgba(120,40,90,.28);transform:rotate(var(--r));transition:transform .6s cubic-bezier(.2,.8,.3,1)}
-.collage .tile:nth-child(2){--r:4deg;top:auto;left:auto;bottom:3.5%;right:3.5%;z-index:2}
-.mem:hover .collage .tile{--r:-1.5deg} .mem:hover .collage .tile:nth-child(2){--r:1.5deg}
-.collage .pic{position:relative;width:100%;height:100%;overflow:hidden;border-radius:8px;background:#F3E8F0}
-.collage .pic img{object-fit:cover;background:none}
-/* cards in a row share one height: the photo grows to fill it (the card next to the wide one gets a taller photo) */
-@media(min-width:480px){.mem{display:flex;flex-direction:column}.mem .media{flex:1 0 auto}.mem.wide{grid-column:span 2}.mem.wide .media{aspect-ratio:1.35/1}}
+/* cards in a row share one height: the photo grows to fill it */
+@media(min-width:480px){.mem{display:flex;flex-direction:column}.mem .media{flex:1 0 auto}}
 .mem:hover{transform:translateY(-10px) rotate(0deg) scale(1.02);border-color:rgba(255,143,184,.7);box-shadow:0 20px 44px rgba(255,92,151,.28)}
 /* while hovered: the card keeps gently swaying, and a soft light sweeps across it */
 .mem{position:relative}
@@ -185,18 +167,36 @@ main{position:relative;z-index:2}
 .ph svg{width:clamp(54px,14vw,84px);height:auto;color:#FF8FB8;filter:drop-shadow(0 0 14px rgba(255,143,184,.6))}
 .ph span{font-size:12px;letter-spacing:.06em;color:rgba(255,248,251,.78)}
 .mem-body{padding:14px 16px 18px}
-.mem-date{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
 .mem-title{font-family:var(--serif);font-weight:600;font-size:clamp(20px,2.6vw,25px);line-height:1.1}
 .mem-title:lang(ta){font-family:var(--mem-title);font-weight:700;font-size:clamp(19px,2.3vw,24px);line-height:1.35;background:linear-gradient(90deg,#FFD1E3,#FF8FB8 55%,#FFD27A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .mem-poem{margin-top:6px;font-family:var(--mem-poem);font-weight:500;font-size:clamp(14px,1.5vw,16px);line-height:1.75;letter-spacing:.01em;color:var(--white);opacity:.9;white-space:pre-line}
 /* closing kavithai under the photos */
 .mem-note{position:relative;max-width:720px;margin:56px auto 0;padding:34px 26px 30px;text-align:center;border-radius:26px;border:1px solid rgba(255,210,122,.45);background:radial-gradient(circle at 50% 0%,rgba(255,143,184,.28),transparent 70%),linear-gradient(165deg,rgba(255,255,255,.12),rgba(255,255,255,.04));box-shadow:0 18px 50px rgba(20,8,43,.35),0 0 40px rgba(255,92,151,.18)}
 .mem-note>svg{width:34px;height:32px;color:#FF5C97;filter:drop-shadow(0 0 10px rgba(255,92,151,.8));animation:beat 1.6s ease-in-out infinite}
-@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
 .mem-note p{margin-top:12px;font-family:var(--mem-title);font-weight:600;font-size:clamp(19px,2.6vw,24px);line-height:1.75;color:var(--blush);white-space:pre-line;text-shadow:0 0 18px rgba(255,92,151,.35)}
 .mem-note p b{font-weight:700;background:linear-gradient(90deg,#FFD27A,#FF8FB8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:none}
 @media(prefers-reduced-motion:reduce){.mem-note>svg{animation:none}}
-@keyframes fade{from{opacity:0}}
+/* Memories in two parts: நீ (her photos), நாம் (ours); buttons under the title jump to each */
+.mem-jump{display:flex;justify-content:center;gap:12px;margin-top:24px}
+.mem-jump button{min-width:80px;padding:7px 22px;border-radius:99px;border:1px solid rgba(247,213,139,.5);background:rgba(90,22,64,.45);color:#F7E7CE;font-size:20px;font-weight:600;line-height:1.5;cursor:pointer;transition:background .25s,border-color .25s,transform .25s}
+.mem-jump button:hover,.mem-jump button:focus-visible{background:rgba(247,213,139,.16);border-color:#F7D58B;transform:translateY(-2px)}
+.mem-sec{scroll-margin-top:84px}
+.mem-sec+.mem-sec{margin-top:clamp(64px,9vw,96px)}
+.mem-head{display:flex;align-items:center;justify-content:center;gap:clamp(14px,3vw,24px);max-width:1180px;margin:0 auto clamp(26px,4vw,38px)}
+.mem-head::before,.mem-head::after{content:'';flex:0 1 200px;height:1px;background:linear-gradient(90deg,transparent,#E3A93C)}
+.mem-head::after{transform:scaleX(-1)}
+.mem-head span{display:flex;flex-direction:column;align-items:center;gap:4px}
+.mem-head b{font-size:clamp(40px,6vw,56px);line-height:1.2;font-weight:600;background:var(--pgold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#F7D58B;filter:drop-shadow(0 0 12px rgba(255,200,90,.35))}
+.mem-head small{font-size:13px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:#FF8FB8}
+/* நாம் photos are shown whole (3:4), not cropped like the square-ish cards above */
+.mem-grid.tall .media{aspect-ratio:3/4}
+/* 3 columns drawn on a 6-column grid so a last row of one or two cards sits in the middle (same card width) */
+@media(min-width:720px){
+  .mem-grid.tall{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .mem-grid.tall .mem{grid-column:span 2}
+  .mem-grid.tall .mem:nth-last-child(2):nth-child(3n+1){grid-column:2/span 2}
+  .mem-grid.tall .mem:last-child:nth-child(3n+1){grid-column:3/span 2}
+}
 
 /* ===== LETTER ===== */
 .letter-zone{display:grid;place-items:center;max-width:760px;margin:0 auto;overflow-x:clip}
@@ -316,9 +316,6 @@ main{position:relative;z-index:2}
 .bq-card::after{content:none}
 .bq p{margin:0;text-align:center;white-space:pre-line;font:600 clamp(19px,3.3vw,27px)/1.85 'Noto Serif Tamil',var(--tamil);color:#5A1240;letter-spacing:.01em}
 .bq p em{font:400 1.75em/.7 'Great Vibes',cursive;font-style:normal;padding:0 .12em 0 .05em;background:linear-gradient(100deg,#C98A2C,#E0457F 60%,#B3125F);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 #fff)}
-.bq small{position:relative;padding:9px 20px;border-radius:999px;background:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.9);color:#8E1B55;font:600 13px var(--sans);letter-spacing:.12em;opacity:0;transition:opacity .6s 2.6s;animation:bqPill 2s ease-in-out infinite}
-@keyframes bqPill{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,92,151,.35)}50%{transform:scale(1.05);box-shadow:0 0 0 8px rgba(255,92,151,0)}}
-.bq.show small{opacity:1}
 @media(prefers-reduced-motion:reduce){.bq-rays,.bq-hearts,.bq-spark,.bq-flower::after{display:none}.bq.bloom .bq-flower{animation:none}}
 .paper.typing .type::after{content:'';display:inline-block;width:2px;height:1.1em;margin-left:2px;vertical-align:text-bottom;background:#B3125F;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
@@ -378,8 +375,6 @@ main{position:relative;z-index:2}
 #giftNo{transition:transform .3s ease,opacity .3s ease}
 .gift-tease{font-family:var(--tamil);min-height:1.7em;color:#FFD27A!important}
 .gift-tease.yes{font-family:var(--tamil-title);font-size:clamp(24px,4vw,32px)!important;color:#FFD1E3!important;animation:popIn .8s cubic-bezier(.2,.9,.3,1.1) both}
-.wish-ta{display:block;font-family:'Tiro Tamil',var(--tamil-title);font-style:italic;font-weight:400;font-size:.44em;line-height:1.5;margin-top:.35em;letter-spacing:.03em;color:#FFE3EE}
-.wish-ta::before,.wish-ta::after{content:'♥';display:inline-block;margin:0 .45em;font-style:normal;font-size:.55em;vertical-align:middle;color:#FF8FB8}
 .gift-ask,.gift-tease.yes{font-family:'Arima',var(--tamil-title)!important;font-weight:500}
 
 /* ===== FINAL ===== */
@@ -409,7 +404,6 @@ main{position:relative;z-index:2}
 .final-cap::before{content:'✦  ♥  ✦';display:block;margin-bottom:10px;font-size:14px;letter-spacing:.3em;color:var(--gold)}
 .final-quote{font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(28px,5vw,46px);line-height:1.25;color:var(--white);text-shadow:0 0 30px rgba(255,143,184,.6);text-wrap:balance}
 .final-note{margin-top:18px;max-width:520px;font-size:clamp(17px,2.2vw,20px);line-height:1.7;color:var(--muted)}
-.final .btn{margin-top:34px}
 #stage-final{--garden-h:max(130px,min(36vw,210px));--foot-h:calc(132px + env(safe-area-inset-bottom));padding-bottom:calc(var(--garden-h) + var(--foot-h))}
 .garden{position:absolute;left:0;right:0;bottom:calc(var(--foot-h) - 1px);height:var(--garden-h);pointer-events:none;z-index:1}
 .garden svg{display:block;width:100%;height:100%}
@@ -431,27 +425,6 @@ main{position:relative;z-index:2}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
 
-/* =====================================================================
-   LIGHT LOVE THEME (design 5B): blush paper with little hearts, deep rose
-   text and a gold-minimal header/footer. It only overrides colours set
-   above, so deleting this block brings the night garden back.
-   ===================================================================== */
-
-/* header: a dark night-blue strip */
-.site-header{background:linear-gradient(90deg,rgba(28,34,87,.97),rgba(46,30,102,.96) 55%,rgba(28,34,87,.97));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 6px 26px rgba(10,8,40,.35)}
-.site-header::after{left:0;right:0;bottom:0;height:1.5px;background:linear-gradient(90deg,transparent,#FF5C97 20%,#C9B6FF 50%,#FF5C97 80%,transparent);box-shadow:0 0 10px #FF5C97}
-.nav{background:rgba(20,16,60,.97);border:1px solid rgba(201,182,255,.35);box-shadow:0 20px 50px rgba(10,8,40,.5)}
-.nav a{font-family:var(--sans);font-size:17px;letter-spacing:.02em;text-transform:none;color:rgba(201,182,255,.85)}
-.nav a[aria-current="page"]{color:#fff;background:rgba(157,134,233,.18);text-shadow:0 0 6px #9D86E9,0 0 16px #9D86E9}
-.hdr-in .icon-btn{border:1.5px solid #FF5C97;background:transparent;color:#FFE3EE;box-shadow:0 0 10px #FF5C97,inset 0 0 8px #FF5C97}
-.hdr-in .icon-btn:hover{background:rgba(255,92,151,.15)}
-@media(min-width:1000px){
-  .nav{background:none;border:0;box-shadow:none;gap:28px}
-  .nav a{font-size:15px;letter-spacing:.02em;border-bottom:0}
-  .nav a:hover{color:#fff}
-  .nav a[aria-current="page"]{background:none}
-}
-
 /* under the header (line design 3, "moving wave"): a gentle pink-lavender wave that keeps flowing like water */
 .hdr-wave{position:absolute;left:0;right:0;bottom:-8px;height:16px;overflow:hidden;pointer-events:none;z-index:1}
 .hdr-wave svg{position:absolute;left:0;top:0;width:200%;height:100%;animation:hdrWave 6s linear infinite}
@@ -463,14 +436,8 @@ main{position:relative;z-index:2}
   .bokeh i{animation:none}
 }@media(min-width:480px) and (max-width:699px){.mem-body{padding:12px 12px 14px}.mem-poem{font-size:13px}}
 @media(max-width:479px){.mem-title:lang(ta){font-size:21px}.mem-poem{font-size:15px}}
-/* "Ramya" with a soft pink-gold shimmer, and a beating heart */
-.hero-title .t2{background:linear-gradient(100deg,#E0457F 0%,#B3125F 28%,#D9A441 48%,#E0457F 70%,#B3125F 100%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 7s linear infinite}
+/* the heart after "Ramya" keeps beating */
 .hero-title .t2 .em{display:inline-block;transform-origin:50% 60%;animation:heartBeat 1.6s ease-in-out infinite}
-/* the kavithai in an elegant glass card */
-.hero-poem{position:relative;padding:24px 26px 14px;border-radius:24px;background:linear-gradient(160deg,rgba(255,255,255,.64),rgba(255,240,247,.42));border:1px solid rgba(224,69,127,.22);box-shadow:0 18px 40px rgba(179,18,95,.13),inset 0 1px 0 rgba(255,255,255,.8);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.hero-poem::before{content:'♥';position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#FF6FA5,#D81B72);color:#fff;font-size:14px;line-height:1;box-shadow:0 6px 14px rgba(216,27,114,.35)}
-@media(min-width:960px){.hero-poem::before{left:30px;transform:none}}
-@media(max-width:699px){.hero-poem{padding:22px 18px 12px}}
 
 /* ===== HOME: heart made of 46 photos (the design chosen on 1 Nov) ===== */
 .mosaic{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:5px;width:min(100%,560px);margin:0 auto;position:relative;z-index:2}
@@ -490,12 +457,8 @@ main{position:relative;z-index:2}
 @media(max-width:959px){.mosaic i{--zoom:3.4}}
 @keyframes mosaicPop{from{opacity:0;transform:scale(.3)}}
 @media(max-width:959px){.mosaic{margin-top:18px;gap:4px}}
-/* hold the photos back while the balloon intro is on, so they pop in one by one when she reaches Home */
+/* hold the photos back while the opening is on, so they pop in one by one when she reaches Home */
 body.intro-on .mosaic i{animation:none;opacity:0}
-/* header, background and text colours come from the plum theme, so Home matches every page */
-#stage-home .hero-title .t2{background-image:linear-gradient(100deg,#D81B72 0%,#FF4F9A 30%,#D81B72 55%,#B3125F 80%,#D81B72 100%)}
-#stage-home .hero-poem{background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding:0}
-#stage-home .hero-poem::before{display:none}
 
 /* ===== OPENING "Golden Night": a gold arrow writes "Happy Birthday", fireworks, "Ramya" in pink neon, then her tap opens a gift box
    (light, hearts and fireworks burst out) and the home page appears. Prototype: intro-2.html. Every name here starts with n- ===== */
@@ -580,11 +543,9 @@ body.intro-on{overflow:hidden}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none !important;transition-duration:.01ms !important}
 }
-/* ===== STORY: "Start Our Journey" opens a Tamil storybook, the last page goes on to Memories ===== */
+/* ===== STORY: the home "Memories" button opens a Tamil storybook, the last page goes on to the Memories page ===== */
 .story{position:fixed;inset:0;z-index:95;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:calc(env(safe-area-inset-top) + 56px) 16px calc(env(safe-area-inset-bottom) + 20px);color:#5A1840;background:radial-gradient(600px 420px at 18% 12%,rgba(255,224,236,.95),transparent 60%),radial-gradient(640px 480px at 88% 88%,rgba(234,220,255,.95),transparent 60%),linear-gradient(160deg,#FFF6F9,#FCE3EF 55%,#F3E3FF);opacity:0;transition:opacity .6s ease;overflow:hidden}
 .story.on{opacity:1}
-.story .st-close{position:absolute;top:calc(env(safe-area-inset-top) + 14px);right:16px;z-index:2;border:0;border-radius:99px;padding:8px 16px;background:rgba(255,255,255,.7);box-shadow:0 4px 14px rgba(216,27,114,.15);font:600 14px/1 var(--sans);color:#B3125F;cursor:pointer}
-.story .st-close:hover{background:#fff}
 .st-float{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .st-float i{position:absolute;bottom:-40px;left:var(--x);font-style:normal;font-size:var(--s);opacity:.55;animation:stRise var(--t) linear var(--d) infinite}
 @keyframes stRise{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(-115vh) rotate(var(--r))}}
@@ -597,7 +558,6 @@ body.intro-on{overflow:hidden}
 .st-pol .tape{position:absolute;top:-12px;left:50%;width:90px;height:24px;margin-left:-45px;background:rgba(255,182,210,.75);transform:rotate(2deg)}
 .st-pol .cap{position:absolute;left:0;right:0;bottom:10px;text-align:center;font:400 26px/1 var(--script);color:#B8336A}
 .st-text{flex-direction:column;align-items:flex-start;justify-content:center;border-radius:0 22px 22px 0;background:repeating-linear-gradient(180deg,transparent 0 35px,rgba(216,27,114,.07) 35px 36px),#FFFBF7}
-.st-chap{margin:0;font:600 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#C2577F}
 .st-title{margin:10px 0 16px;font:700 clamp(28px,3.6vw,40px)/1.3 'Baloo Thambi 2',var(--tamil);background:linear-gradient(90deg,#D81B72,#9B3FD6);-webkit-background-clip:text;background-clip:text;color:transparent}
 .st-lines p{margin:0;font:500 clamp(17px,1.65vw,20px)/1.95 'Arima',var(--tamil);color:#4A1F5C}
 .st-cta{margin-top:24px}
@@ -649,12 +609,8 @@ html body,html body *:not(.em){font-family:'Cormorant Garamond','Noto Serif Tami
 /* Cormorant is a small-looking font, so the small English text is made a little bigger to read easily */
 .btn{font-size:19px;font-weight:700;letter-spacing:.02em}
 .hint,.skip{font-size:17px}
-.mem-date{font-size:14px;font-weight:700}
 .toast{font-size:17px}
 .bq h3{font-weight:700!important}
-
-/* story book: no "Skip" button and no "Chapter N" label (she reads the pages; the last page's button opens Memories) */
-#stClose,#stChap{display:none!important}
 
 /* =====================================================================
    PLUM & GOLD (data-theme="plum" on <html>): every page, the header and the menus use the colours of the
@@ -701,12 +657,10 @@ html body,html body *:not(.em){font-family:'Cormorant Garamond','Noto Serif Tami
 [data-theme="plum"] .mosaic i b{box-shadow:0 6px 14px rgba(0,0,0,.45)}
 [data-theme="plum"] .mosaic i.big b{box-shadow:0 0 0 1.5px #F7D58B,0 16px 34px rgba(0,0,0,.6)}
 @media(hover:hover){[data-theme="plum"] .mosaic i:not(.e):hover b{box-shadow:0 0 0 1.5px #F7D58B,0 16px 34px rgba(0,0,0,.6)}}
-[data-theme="plum"] .btn-ghost{color:#F7D58B;background:linear-gradient(rgba(42,10,46,.75),rgba(42,10,46,.75)) padding-box,linear-gradient(115deg,#FFE9A8,#E3A93C,#FF8FB8) border-box}
 
 /* memories */
 [data-theme="plum"] .mem{background:linear-gradient(165deg,rgba(90,22,64,.55),rgba(26,6,30,.82));border-color:rgba(247,213,139,.32);box-shadow:0 18px 40px rgba(0,0,0,.45)}
 [data-theme="plum"] .mem:hover{border-color:rgba(247,213,139,.75);box-shadow:0 22px 46px rgba(0,0,0,.55),0 0 24px rgba(247,213,139,.18)}
-[data-theme="plum"] .mem-date{color:#F7D58B}
 [data-theme="plum"] .mem-title{color:#F7E7CE}
 [data-theme="plum"] .mem-title:lang(ta){background:linear-gradient(90deg,#FF8FB8,#F7D58B);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 [data-theme="plum"] .mem-poem{color:rgba(247,231,206,.88);opacity:1}
@@ -740,7 +694,6 @@ html body,html body *:not(.em){font-family:'Cormorant Garamond','Noto Serif Tami
 [data-theme="plum"] .bq-card::before{background:none;box-shadow:none;color:#F7D58B;font-size:14px;text-shadow:0 0 8px rgba(247,213,139,.6)}
 [data-theme="plum"] .bq p{color:#F7E7CE}
 [data-theme="plum"] .bq p em{background:none;-webkit-text-fill-color:#FFE4EF;color:#FFE4EF;font-size:1.45em;filter:none;text-shadow:0 0 6px #fff,0 0 14px #FF5C97,0 0 30px #FF2E7E}
-[data-theme="plum"] .bq small{background:none;border:0;color:#F7D58B;font-weight:700;letter-spacing:.3em;text-transform:uppercase;animation:n-pulse 1.6s ease-in-out infinite}
 
 /* gift */
 [data-theme="plum"] .gift-note{color:#F7E7CE!important}
